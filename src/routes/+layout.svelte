@@ -5,8 +5,6 @@
 	import { onMount } from 'svelte';
 	import 'uno.css';
 
-	export const prerender = true;
-
 	onMount(() => onHydrated());
 </script>
 

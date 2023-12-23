@@ -1,7 +1,7 @@
 import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 
-const key = '@riadh-adrani-theme';
+const key = '@gny-theme';
 
 const updateLocalStorage = (value: boolean) => {
 	if (browser) {

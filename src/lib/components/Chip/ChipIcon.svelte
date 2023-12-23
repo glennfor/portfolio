@@ -21,7 +21,7 @@
 		<slot />
 	{:else}
 		<img
-			class={`w-15px h-15px ${inverted ? 'invert-100' : ''}`}
+			class={`w-auto h-15px ${inverted ? 'invert-100' : ''}`}
 			class:chip-icon-logo-inverted={$theme && inverted}
 			src={logo}
 			alt={name}

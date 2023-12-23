@@ -11,7 +11,7 @@ const MY_PROJECTS: Array<Project> = [
 		shortDescription:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
 		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
-		logo: Assets.Unknown,
+		logo: Assets.KetAcademy,
 		name: 'Slick Portfolio',
 		period: {
 			from: new Date()
