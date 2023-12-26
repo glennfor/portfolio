@@ -1,15 +1,30 @@
 <script lang="ts">
-	import Card from '$lib/components/Card/Card.svelte';
 	import { base } from '$app/paths';
-	import { SKILLS } from '$lib/params';
-	import SearchPage from '$lib/components/SearchPage.svelte';
-	import type { Skill } from '$lib/types';
-	import { isBlank } from '@riadh-adrani/utils';
-	import { getAssetURL } from '$lib/data/assets';
+	import Card from '$lib/components/Card/Card.svelte';
+	import Chip from '$lib/components/Chip/Chip.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import SearchPage from '$lib/components/SearchPage.svelte';
+	import { getAssetURL } from '$lib/data/assets';
+	import { SKILLS } from '$lib/params';
+	import type { Category, Skill } from '$lib/types';
+	import { isBlank } from '@riadh-adrani/utils';
+
+	interface SkillFilter {
+		category: Category;
+		isSelected?: boolean;
+	}
 
 	const { items, title } = SKILLS;
 
+	// filter skills categories
+	let filters: Array<SkillFilter> = new Array<SkillFilter>();
+
+	for (let skill of items) {
+		for (let category of skill?.categories) {
+			if (!filters.some((it) => it.category == category))
+				filters.push({ category: category, isSelected: true });
+		}
+	}
 	let result: Array<Skill> = items;
 
 	const onSearch = (e: CustomEvent<{ search: string }>) => {
@@ -21,9 +36,25 @@
 
 		result = items.filter((it) => it.name.toLowerCase().includes(query));
 	};
+
+	$: {
+		result = items.filter((skill) =>
+			filters.some((it) => skill.categories.indexOf(it.category) >= 0 && it.isSelected)
+		);
+	}
 </script>
 
 <SearchPage {title} on:search={onSearch}>
+	<div class="skill-filters">
+		<span class="text-sm font-light">Select categories:</span>
+		{#each filters as tag}
+			<Chip
+				active={tag.isSelected}
+				classes={'text-0.8em'}
+				on:click={() => (tag.isSelected = !tag.isSelected)}>{tag.category}</Chip
+			>
+		{/each}
+	</div>
 	{#if result.length === 0}
 		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
 			<UIcon icon="i-carbon-cube" classes="text-3.5em" />
