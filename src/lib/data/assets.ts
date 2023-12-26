@@ -33,6 +33,7 @@ const Assets = {
 	TypeScript: a('ts.png'),
 	VueJs: a('vue.png'),
 	ReactJs: a('react.svg'),
+	JQuery: a('jquery.png'),
 	Dart: a('dart.png'),
 	Kotlin: a('kotlin.png'),
 	Python: a('python.png'),
@@ -56,6 +57,7 @@ const Assets = {
 	Sass: a('sass.png'),
 	Unknown: a('no-img.svg'),
 	MongoDB: a('mongodb.svg'),
+	MySQL: a('mysql.svg'),
 	Redis: a('redis.svg'),
 	Tailwind: a('tailwind.svg'),
 	HTML: a('html.svg'),
@@ -72,7 +74,10 @@ const Assets = {
 	Ruvy: a('ruvy.svg'),
 	Postcss: a('postcss.svg'),
 	KetAcademy: a('ket-logo.png'),
+	VTC: a('vtc.png'),
 };
+
+
 
 export default Assets;
 
