@@ -17,6 +17,21 @@ export enum ContractType {
 	Internship = 'Internship'
 }
 
+export enum Category{
+	Automation = "Automation",
+	Robotics = "Robotics",
+	Desktop = "Desktop",
+	System = "System",
+	Game = "Game",
+	Web = "Web",
+	Cloud = "Cloud",
+	IoT = "Internt of Things",
+	Security = "Security",
+	ML_AI = "ML and AI",
+	Database="Database",
+	WebScraping = "Web Scraping"
+}
+
 export type Asset = string | { light: string; dark: string };
 
 export interface Item {
@@ -40,6 +55,11 @@ export interface IconLink extends Link {
 
 export interface Skill extends Omit<Item, 'shortDescription'> {
 	color: string;
+	categories: Array<Category>;
+}
+
+export interface Tool extends Omit<Item, 'shortDescription'> {
+	color: string;
 }
 
 export interface Project extends Item {
@@ -53,10 +73,11 @@ export interface Project extends Item {
 	skills: Array<Skill>;
 }
 
-export interface Experience extends Project {
+export interface Experience extends  Omit<Project,  'shortDescription'> {
 	company: string;
 	location: string;
 	contract: ContractType;
+	tasks?: [String];
 }
 
 export interface PageParams {
