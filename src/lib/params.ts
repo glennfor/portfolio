@@ -87,7 +87,7 @@ export const EXPERIENCES: ExperiencePageParams = {
 };
 
 export const SKILLS: SkillsPageParams = {
-	title: 'Skills',
+	title: 'Skills and Tools',
 	items: MY_SKILLS
 };
 
