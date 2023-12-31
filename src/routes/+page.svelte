@@ -24,8 +24,8 @@
 	class="col self-center flex-1 md:flex-row md:slef-stretch justify-center lg:justify-between items-center p-y-0px p-x-10px"
 >
 	<div class="md:flex-1 gap-10px">
-		<MainTitle classes="md:text-left ">👋, I'm {name} {lastName}. </MainTitle>
-		<p class="text-[var(--tertiary-text)]  text-center md:text-left text-[1.2em] font-extralight">
+		<MainTitle classes="md:text-left ">👋, I'm {name} {lastName}.</MainTitle>
+		<p class="text-[var(--tertiary-text)] text-center md:text-left text-[1.2em] font-extralight">
 			{description}
 		</p>
 		<div class="row justify-center md:justify-start p-y-15px p-x-0px gap-2">
@@ -39,6 +39,7 @@
 					<Icon icon={getPlatfromIcon(link.platform)} color={'var(--accent-text)'} size={'20px'} />
 				</a>
 			{/each}
+			Resumé
 		</div>
 	</div>
 	<Carrousel items={skills ?? MY_SKILLS} />

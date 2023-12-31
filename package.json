@@ -54,6 +54,7 @@
 	"type": "module",
 	"dependencies": {
 		"dayjs": "^1.11.10",
+		"flowbite-svelte": "^0.44.21",
 		"moment": "^2.29.4"
 	}
 }
