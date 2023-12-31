@@ -6,14 +6,14 @@
 	import MY_PROJECTS from '$lib/projects.params';
 
 	import { base } from '$app/paths';
-	import type { Skill } from '$lib/types';
-	import { getAssetURL } from '$lib/data/assets';
-	import { SKILLS } from '$lib/params';
+	import Banner from '$lib/components/Banner/Banner.svelte';
+	import Chip from '$lib/components/Chip/Chip.svelte';
+	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import Markdown from '$lib/components/Markdown.svelte';
 	import TabTitle from '$lib/components/TabTitle.svelte';
-	import Chip from '$lib/components/Chip/Chip.svelte';
-	import Banner from '$lib/components/Banner/Banner.svelte';
-	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import { getAssetURL } from '$lib/data/assets';
+	import { SKILLS } from '$lib/params';
+	import type { Skill } from '$lib/types';
 
 	type Related = {
 		display: string;
@@ -80,6 +80,22 @@
 			<Banner img={getAssetURL(data.skill.logo)}>
 				<MainTitle>{data.skill.name}</MainTitle>
 			</Banner>
+			{#if data.skill?.certifications}
+				<h2 class="text-lg">Certfications</h2>
+				<div class="pt-3 pb-1 px-6 m-8 overflow-x-scroll md:overflow-x-hidden w-full row gap-8">
+					{#each data.skill.certifications as cert (cert.certificate)}
+						<div>
+							<img
+								src={cert.certificate}
+								alt={'Certified by ' + cert.by}
+								class="rounded-md h-[200px]"
+							/>
+							<p class="my-2">{cert.by}</p>
+							<Chip classes={'px-8'}>{cert.date.toLocaleDateString()}</Chip>
+						</div>
+					{/each}
+				</div>
+			{/if}
 			<div class="pt-3 pb-1 overflow-x-hidden w-full">
 				<div class="px-10px m-y-5">
 					{#if data.skill.description}
@@ -95,7 +111,7 @@
 			<div class="self-stretch mb-2">
 				<CardDivider />
 			</div>
-			<div class="flex flex-row gap-1 self-stretch flex-wrap ">
+			<div class="flex flex-row gap-1 self-stretch flex-wrap">
 				<div class="px-10px">
 					{#each related as item}
 						<Chip

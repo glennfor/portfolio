@@ -58,7 +58,7 @@
 			result = items.filter((skill) =>
 				filters.some((it) => skill.categories.indexOf(it.category) >= 0 && it.isSelected)
 			);
-		if (certfiedOnly) result = items.filter((skill) => !!skill.certified);
+		if (certfiedOnly) result = items.filter((skill) => !!skill.certifications);
 	}
 </script>
 
@@ -69,7 +69,7 @@
 			on:click={() => (certfiedOnly = !certfiedOnly)}
 			classes={'text-green-500 px-8 py-2 rounded-xl font-bold row items-center justify-center mr-5'}
 		>
-			Certified
+			Certified?
 		</Chip>
 		{#each filters as tag}
 			<Chip
