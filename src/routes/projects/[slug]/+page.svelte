@@ -149,20 +149,20 @@
 </div>
 
 <style>
-	* > button {
+	/* * > button {
 		background-color: yellow !important;
 		outline: none;
 		border: 0;
-	}
+	} */
 
 	/*TODO  update this change
 	 - Flowbite has a huge problem wherein I cannot style the buttons of containing the indicators or thumbnails
 	 - This makeshift takes care of that at the moment
 	*/
 
-	button:has(.remove-btn-style) {
+	/* button:has(.remove-btn-style) {
 		background-color: yellow !important;
 		outline: none;
 		border: 0;
-	}
+	} */
 </style>
