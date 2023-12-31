@@ -8,10 +8,14 @@ const a = (light: string, dark?: string): Asset =>
 	dark ? { dark: gh(dark), light: gh(light) } : gh(light);
 
 const Assets = {
+	CLI: a('cli.svg'),
+
 	AWS: a('aws.svg'),
 	Bootstrap: a('bootstrap.svg'),
 	C: a('c.svg'),
 	Cpp: a('cpp.svg'),
+	Raylib: a('raylib.png'),
+
 	Celery: a('celery.svg'),
 	Django: a('django.svg'),
 	FastApi: a('fastapi'),
@@ -48,7 +52,10 @@ const Assets = {
 	SolidJs: a('solid.svg'),
 	Electron: a('electron.png'),
 	Flutter: a('flutter.svg'),
+
 	Java: a('java.png'),
+	JavaFX: a('javafx.png'),
+
 	AdonisJs: a('adonis.png'),
 	Android: a('android.png'),
 	Angular: a('angular.png'),
@@ -73,8 +80,13 @@ const Assets = {
 	Unocss: a('unocss.svg'),
 	Ruvy: a('ruvy.svg'),
 	Postcss: a('postcss.svg'),
+	
 	KetAcademy: a('ket-logo.png'),
 	VTC: a('vtc.png'),
+
+	Chess: a('chess.png'),
+	Checkers: a('checkers.svg'),
+	TTT: a('ttt.svg')
 };
 
 
