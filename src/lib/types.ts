@@ -33,6 +33,9 @@ export enum Category{
 	WebScraping = "Web Scraping",
 	CV = "Computer Vision",
 	DS = "Data Science",
+	CLI = "Command Line Application",
+	Graphics2D = "2D graphics",
+	Graphics3D = "3D graphics",
 }
 
 export type Asset = string | { light: string; dark: string };
@@ -57,12 +60,18 @@ export interface IconLink extends Link {
 }
 
 export interface Skill extends Omit<Item, 'shortDescription'> {
+	certified?: {
+		by: string;
+		certificate: string;
+		date: Date;
+	}
 	color: string;
 	categories: Array<Category>;
 }
 
 export interface Tool extends Omit<Item, 'shortDescription'> {
 	color: string;
+	categories: Array<Category>;
 }
 
 export interface Project extends Item {
@@ -74,6 +83,7 @@ export interface Project extends Item {
 	};
 	type: string;
 	skills: Array<Skill>;
+	categories: Array<Category>;
 }
 
 export interface Experience extends  Omit<Project,  'shortDescription'> {

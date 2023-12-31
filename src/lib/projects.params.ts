@@ -1,6 +1,6 @@
 import Assets from './data/assets';
 import { getSkills } from './skills.params';
-import type { Project } from './types';
+import { Category, type Project } from './types';
 
 const MY_PROJECTS: Array<Project> = [
 	{
@@ -38,7 +38,9 @@ const MY_PROJECTS: Array<Project> = [
 				label: '404 Not Found',
 				src: '/images/ket/404.png',
 			},
-		]
+		],
+		categories: [Category.Web,]
+
 	},
 	{
 		slug: 'worklin',
@@ -68,7 +70,9 @@ const MY_PROJECTS: Array<Project> = [
 				label: 'Dashboard',
 				src: '/images/vtc/dash.png',
 			},
-		]
+		],
+		categories: [Category.Web,]
+
 	},
 	{
 		slug: 'kingston',
@@ -124,7 +128,9 @@ const MY_PROJECTS: Array<Project> = [
 				label: 'Code ',
 				src: '/images/lib/Screenshot (47).png',
 			},
-		]
+		],
+		categories: [Category.Desktop]
+
 	},
 
 	{
@@ -159,7 +165,9 @@ const MY_PROJECTS: Array<Project> = [
 				src: '/images/slide-puzzle/solving.png',
 			},
 			
-		]
+		],
+		categories: [Category.CLI]
+
 	},
 
 	{
@@ -185,7 +193,8 @@ const MY_PROJECTS: Array<Project> = [
 				label: 'Code',
 				src: '/images/chess/1.png',
 			},
-		]
+		],
+		categories: [Category.Graphics2D, Category.Game]
 	},
 
 	{
@@ -221,7 +230,9 @@ const MY_PROJECTS: Array<Project> = [
 				src: '/images/slide-puzzle/solving.png',
 			},
 			
-		]
+		],
+		categories: [Category.Graphics2D, Category.Game]
+
 	},
 ];
 
