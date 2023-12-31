@@ -11,6 +11,7 @@ import {
 	type SkillsPageParams
 } from './types';
 import { Icons } from './utils';
+import WRITINGS from './writing.params';
 
 export const TITLE_SUFFIX = 'Portfolio - Glen';
 
@@ -93,7 +94,7 @@ export const SKILLS: SkillsPageParams = {
 
 export const WRITING: ResumePageParams = {
 	title: 'Writing',
-	item: ''
+	items: WRITINGS,
 };
 
 export const SEARCH: SearchPageParams = {
