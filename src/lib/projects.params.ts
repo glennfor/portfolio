@@ -170,6 +170,46 @@ const MY_PROJECTS: Array<Project> = [
 
 	},
 
+
+	{
+		slug: 'ttt',
+		color: '#FB6376',
+		description:
+			'Tic tac toe game for windows CLI with CLi programming and implementation of minimax algorithm.',
+		shortDescription:
+		'Tic tac toe game for windows CLI with CLi programming and implementation of minimax algorithm.',
+		links: [{ to: '', label: 'Github' , newTab: true}],
+		logo: Assets.TTT,
+		name: 'Tic Tac Toe',
+		period: {
+			from: new Date(2023, 0), to: new Date(2023, 2)
+		},
+		skills: getSkills('cpp'),
+		type: 'Command Line Application',
+		screenshots: [
+			{
+				label: 'Game on',
+				src: '/images/ttt/Screenshot (30).png',
+			},
+			{
+				label: 'Home',
+				src: '/images/ttt/Screenshot (25).png',
+			},
+			{
+				label: 'Choose Player',
+				src: '/images/ttt/Screenshot (28).png',
+			},
+	
+			{
+				label: 'Lost the Game',
+				src: '/images/ttt/Screenshot (31).png',
+			},
+			
+		],
+		categories: [Category.CLI]
+
+	},
+
 	{
 		slug: 'chess',
 		color: '#FFC482',
@@ -202,7 +242,7 @@ const MY_PROJECTS: Array<Project> = [
 		color: '#AB2fAF',
 		description:
 			'Checkers game.',
-		shortDescription:'Checkers game.',
+		shortDescription:'Checkers game for two players (or vs Computer) with implementation of minimax algorithm.',
 		links: [{ to: '', label: 'View on Github' , newTab: true}],
 		logo: Assets.Checkers,
 		name: 'Checkers',
@@ -214,20 +254,55 @@ const MY_PROJECTS: Array<Project> = [
 		type: '2D graphics',
 		screenshots: [
 			{
-				label: 'Solving',
-				src: '/images/slide-puzzle/solving.png',
+				label: 'Game UI',
+				src: '/images/checkers/init.png',
 			},
 			{
-				label: 'Intro',
-				src: '/images/slide-puzzle/solving.png',
+				label: 'Linting positions',
+				src: '/images/checkers/linting2.png',
 			},
 			{
-				label: 'Solved by COmputer',
-				src: '/images/slide-puzzle/solving.png',
+				label: 'King',
+				src: '/images/checkers/king.png',
 			},
 			{
-				label: 'Demo Video',
-				src: '/images/slide-puzzle/solving.png',
+				label: 'Complete',
+				src: '/images/checkers/checkmate.png',
+			},
+			
+		],
+		categories: [Category.Graphics2D, Category.Game]
+
+	},
+
+	{
+		slug: 'shooter',
+		color: '#AB2fAF',
+		description:
+			'Shooting Game with Pygame.',
+		shortDescription:'Shooting game with pygame. Sound effects and keyboard controls.',
+		links: [{ to: '', label: 'View on Github' , newTab: true}],
+		logo: Assets.Unknown,
+		name: 'Shooter',
+		period: {
+			from: new Date(2023, 0), to: new Date(2023, 2)
+		},
+		skills: getSkills('python', 'pygame'),
+
+		type: '2D graphics',
+		screenshots: [
+			
+			{
+				label: 'Game Start',
+				src: '/images/shooter/game.png',
+			},
+			{
+				label: 'Game Ended',
+				src: '/images/shooter/end.png',
+			},
+			{
+				label: 'Code',
+				src: '/images/shooter/code.png',
 			},
 			
 		],
