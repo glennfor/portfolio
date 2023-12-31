@@ -60,11 +60,11 @@ export interface IconLink extends Link {
 }
 
 export interface Skill extends Omit<Item, 'shortDescription'> {
-	certified?: {
+	certifications?: Array<{
 		by: string;
 		certificate: string;
 		date: Date;
-	}
+	}>
 	color: string;
 	categories: Array<Category>;
 }
