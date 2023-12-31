@@ -18,7 +18,7 @@ export const NavBar = {
 	home: 'Home',
 	personal: 'Projects',
 	career: 'Experiences',
-	resume: 'Resume',
+	writing: 'Writing',
 	skills: 'Skills'
 };
 
@@ -91,8 +91,8 @@ export const SKILLS: SkillsPageParams = {
 	items: MY_SKILLS
 };
 
-export const RESUME: ResumePageParams = {
-	title: 'Resumé',
+export const WRITING: ResumePageParams = {
+	title: 'Writing',
 	item: ''
 };
 
