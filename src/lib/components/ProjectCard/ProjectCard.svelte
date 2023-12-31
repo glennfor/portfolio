@@ -100,7 +100,7 @@
 			height: 400px;
 
 			img {
-				// border-radius: 22px;
+				border-radius: 8px;
 				height: 100%;
 				object-fit: cover;
 			}
