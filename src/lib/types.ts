@@ -21,6 +21,7 @@ export enum Category{
 	Automation = "Automation",
 	Robotics = "Robotics",
 	Desktop = "Desktop",
+	Mobile = "Mobile",
 	System = "System",
 	Game = "Game",
 	Web = "Web",
@@ -29,7 +30,9 @@ export enum Category{
 	Security = "Security",
 	ML_AI = "ML and AI",
 	Database="Database",
-	WebScraping = "Web Scraping"
+	WebScraping = "Web Scraping",
+	CV = "Computer Vision",
+	DS = "Data Science",
 }
 
 export type Asset = string | { light: string; dark: string };
