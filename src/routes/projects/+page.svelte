@@ -1,22 +1,34 @@
 <script lang="ts">
+	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 	import Chip from '$lib/components/Chip/Chip.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import { PROJECTS } from '$lib/params';
 	import MY_SKILLS from '$lib/skills.params';
-	import type { Project, Skill } from '$lib/types';
+	import type { Category, Project, Skill } from '$lib/types';
 	import { onMount } from 'svelte';
 
 	interface SkillFilter extends Skill {
 		isSelected?: boolean;
 	}
 
+	// interface CategoryFilter
+
 	const { items, title } = PROJECTS;
 
 	let filters: Array<SkillFilter> = MY_SKILLS.filter((it) => {
 		return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
 	});
+
+	let tabs = new Array<Category>();
+	let currentTab: Category;
+
+	for (let project of items) {
+		for (let categrory of project?.categories) {
+			if (!tabs.includes(categrory)) tabs.push(categrory);
+		}
+	}
 
 	let search = '';
 	let displayed: Array<Project> = [];
@@ -33,6 +45,11 @@
 
 			return tech;
 		});
+	};
+
+	const onFilter = (category: Category) => {
+		currentTab = category;
+		displayed = items.filter((project) => project.categories.includes(category));
 	};
 
 	$: {
@@ -71,7 +88,18 @@
 </script>
 
 <SearchPage {title} on:search={onSearch}>
-	<div class="projects-filters">
+	<div class="projects-tabs my-6">
+		{#each tabs as tab}
+			<Chip
+				active={currentTab == tab}
+				classes={'text-md px-8 py-2 rounded-xl'}
+				on:click={() => onFilter(tab)}>{tab}</Chip
+			>
+		{/each}
+	</div>
+	<CardDivider></CardDivider>
+	<div class="projects-filters mt-3">
+		<span>Tags:</span>
 		{#each filters as tech}
 			<Chip active={tech.isSelected} classes={'text-0.8em'} on:click={() => onSelected(tech.slug)}
 				>{tech.name}</Chip
