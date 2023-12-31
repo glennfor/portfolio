@@ -1,17 +1,20 @@
 <script lang="ts">
 	import CardLogo from '$lib/components/Card/CardLogo.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
+	import { Carousel, Thumbnails } from 'flowbite-svelte';
 
 	import { base } from '$app/paths';
-	import type { Project } from '$lib/types';
-	import { getAssetURL } from '$lib/data/assets';
-	import { PROJECTS } from '$lib/params';
+	import Banner from '$lib/components/Banner/Banner.svelte';
+	import CardDivider from '$lib/components/Card/CardDivider.svelte';
+	import Chip from '$lib/components/Chip/Chip.svelte';
+	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import Markdown from '$lib/components/Markdown.svelte';
 	import TabTitle from '$lib/components/TabTitle.svelte';
-	import Chip from '$lib/components/Chip/Chip.svelte';
-	import Banner from '$lib/components/Banner/Banner.svelte';
-	import UIcon from '$lib/components/Icon/UIcon.svelte';
-	import CardDivider from '$lib/components/Card/CardDivider.svelte';
+	import { getAssetURL } from '$lib/data/assets';
+	import { PROJECTS } from '$lib/params';
+	import type { Project } from '$lib/types';
+	import { onMount } from 'svelte';
+	import type { HTMLImgAttributes } from 'svelte/elements';
 
 	export let data: { project?: Project };
 
@@ -20,6 +23,18 @@
 	const screenshots = data.project?.screenshots ?? [];
 
 	$: computedTitle = data.project ? `${data.project.name} - ${title}` : title;
+
+	let image: HTMLImgAttributes;
+	let index = 0;
+	let forward = true; // sync animation direction between Thumbnails and Carousel
+
+	const images = data?.project?.screenshots?.map((it) => ({
+		alt: it.label,
+		src: it.src,
+		title: it.label
+	}));
+
+	onMount(() => console.log(images));
 </script>
 
 <TabTitle title={computedTitle} />
@@ -84,24 +99,70 @@
 				<div class="w-100% m-t-8">
 					<CardDivider />
 				</div>
-				{#if screenshots.length > 0}
-					<div
-						class="px-10px grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-t-10 "
-					>
-						{#each screenshots as item}
-							<div class="col-center gap-3 overflow-hidden w-100% h-100% rounded-10px">
-								<img class="aspect-video w-100%" src={item.src} alt={item.label} />
-								<p class="text-[var(--tertiary-text)] font-300">{item.label}</p>
-							</div>
-						{/each}
-					</div>
-				{:else}
+			</div>
+
+			<div class="max-w-5xl space-y-4 bg-transparent mx-3">
+				{#if !images}
 					<div class="p-5 col-center gap-3 m-y-auto text-[var(--border)]">
 						<UIcon icon="i-carbon-image" classes="text-3.5em" />
 						<p class="font-300">No screenshots</p>
 					</div>
+				{:else}
+					<Carousel
+						{images}
+						imgClass="object-cover h-full w-fit rounded-sm "
+						{forward}
+						transition={null}
+						duration={4000}
+						on:change={({ detail }) => (image = detail)}
+						let:Indicators
+						let:Controls
+						bind:index
+					>
+						<Controls class="bg-transparent outline-none border-0" />
+						<Indicators let:Indicator activeClass="bg-green-300">
+							<Indicator class=" remove-btn-style outline-none border-0 bg-blue-300" />
+						</Indicators>
+					</Carousel>
+					<div class="rounded outline-2 p-2 py-3 my-2 text-center">
+						{image?.alt}
+					</div>
+					<Thumbnails
+						class="bg-transparent gap-3 overflow-scroll"
+						let:Thumbnail
+						let:image
+						let:selected
+						{images}
+						bind:index
+					>
+						<Thumbnail
+							{...image}
+							{selected}
+							class=" remove-btn-style bg-transparent rounded-md shadow-xl hover:outline hover:outline-primary-500 h-[100px]"
+							activeClass="outline outline-primary-400"
+						/>
+					</Thumbnails>
 				{/if}
 			</div>
 		</div>
 	{/if}
 </div>
+
+<style>
+	* > button {
+		background-color: yellow !important;
+		outline: none;
+		border: 0;
+	}
+
+	/*TODO  update this change
+	 - Flowbite has a huge problem wherein I cannot style the buttons of containing the indicators or thumbnails
+	 - This makeshift takes care of that at the moment
+	*/
+
+	button:has(.remove-btn-style) {
+		background-color: yellow !important;
+		outline: none;
+		border: 0;
+	}
+</style>

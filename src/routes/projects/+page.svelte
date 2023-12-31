@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Chip from '$lib/components/Chip/Chip.svelte';
+	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import { PROJECTS } from '$lib/params';
+	import MY_SKILLS from '$lib/skills.params';
 	import type { Project, Skill } from '$lib/types';
 	import { onMount } from 'svelte';
-	import MY_SKILLS from '$lib/skills.params';
-	import UIcon from '$lib/components/Icon/UIcon.svelte';
 
 	interface SkillFilter extends Skill {
 		isSelected?: boolean;
@@ -94,15 +94,16 @@
 
 <style lang="scss">
 	.projects-list {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		display: flex;
+		flex-direction: column;
+		// grid-template-columns: repeat(3, 1fr);
 		gap: 20px;
 
-		@media (max-width: 1350px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-		@media (max-width: 850px) {
-			grid-template-columns: repeat(1, 1fr);
-		}
+		// @media (max-width: 1350px) {
+		// 	grid-template-columns: repeat(2, 1fr);
+		// }
+		// @media (max-width: 850px) {
+		// 	grid-template-columns: repeat(1, 1fr);
+		// }
 	}
 </style>
