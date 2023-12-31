@@ -20,8 +20,10 @@ export const NavBar = {
 	personal: 'Projects',
 	career: 'Experiences',
 	writing: 'Writing',
-	skills: 'Skills'
+	skills: 'Skills',
 };
+
+
 
 export const getPlatfromIcon = (platform: Platform): Icons => {
 	switch (platform) {
