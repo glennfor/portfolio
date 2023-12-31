@@ -80,13 +80,11 @@ export interface Experience extends  Omit<Project,  'shortDescription'> {
 	company: string;
 	location: string;
 	contract: ContractType;
-	tasks?: [String];
 }
 
 
 
 export interface Writing {
-	icon: string;
 	featured: string;
 	slug: string;
 	title: string, 
@@ -129,5 +127,5 @@ export type ExperiencePageParams = PageWithSearchParams<Experience>;
 export type SkillsPageParams = PageWithSearchParams<Skill>;
 
 export interface ResumePageParams extends PageParams {
-	item: string;
+	items: Array<Writing>;
 }
