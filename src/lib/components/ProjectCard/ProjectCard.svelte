@@ -64,10 +64,7 @@
 			</div>
 		</div>
 		<div class="featured">
-			<img
-				src={project?.screenshots?.at(0)?.src ?? 'https://picsum.photos/id/237/900/600'}
-				alt="Featured"
-			/>
+			<img src={project?.screenshots?.at(0)?.src} alt="Featured" />
 		</div>
 	</div>
 </Card>
@@ -79,7 +76,7 @@
 		height: fit-content;
 		display: flex;
 		flex-direction: row;
-		justify-content: flex-start;
+		justify-content: space-between;
 		flex-wrap: nowrap;
 		gap: 100px;
 
