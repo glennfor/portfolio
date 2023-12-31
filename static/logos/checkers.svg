@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="800" height="800" viewBox="0 0 800 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+	<rect id="lightsquare" x="0" y="0" width="1" height="1" style="fill:#feb;"/>
+	<rect id="darksquare" x="0" y="0" width="1" height="1" style="fill:#582;"/>
+	<g id="white">
+	<ellipse cx=".5" cy=".5" rx=".3125" ry=".26" transform="translate(0,.07)" style="fill:#000;stroke:black;stroke-width:.03;"/>
+	<ellipse cx=".5" cy=".5" rx=".3125" ry=".26" style="fill:#fff9f4;stroke:black;stroke-width:.03;"/>
+	</g>
+	<g id="black">
+	<ellipse cx=".5" cy=".5" rx=".3125" ry=".26" transform="translate(0,.07)" style="fill:#000;stroke:black;stroke-width:.03;"/>
+	<ellipse cx=".5" cy=".5" rx=".3125" ry=".26" style="fill:#c40003;stroke:black;stroke-width:.03;"/>
+	</g>
+	<g id="lightrow">
+		<use xlink:href="#lightsquare" x="1"/>
+		<use xlink:href="#darksquare" x="2"/>
+		<use xlink:href="#lightsquare" x="3"/>
+		<use xlink:href="#darksquare" x="4"/>
+		<use xlink:href="#lightsquare" x="5"/>
+		<use xlink:href="#darksquare" x="6"/>
+		<use xlink:href="#lightsquare" x="7"/>
+		<use xlink:href="#darksquare" x="8"/>
+	</g>
+	<g id="darkrow">
+		<use xlink:href="#darksquare" x="1"/>
+		<use xlink:href="#lightsquare" x="2"/>
+		<use xlink:href="#darksquare" x="3"/>
+		<use xlink:href="#lightsquare" x="4"/>
+		<use xlink:href="#darksquare" x="5"/>
+		<use xlink:href="#lightsquare" x="6"/>
+		<use xlink:href="#darksquare" x="7"/>
+		<use xlink:href="#lightsquare" x="8"/>
+	</g>
+</defs>
+<g transform="scale(100,100) translate(-1,-1)">
+<!-- The board -->
+	<use xlink:href="#lightrow" y="1"/>
+	<use xlink:href="#darkrow" y="2"/>
+	<use xlink:href="#lightrow" y="3"/>
+	<use xlink:href="#darkrow" y="4"/>
+	<use xlink:href="#lightrow" y="5"/>
+	<use xlink:href="#darkrow" y="6"/>
+	<use xlink:href="#lightrow" y="7"/>
+	<use xlink:href="#darkrow" y="8"/>
+
+<!-- The pieces -->
+	<use xlink:href="#black" x="2" y="1"/>
+	<use xlink:href="#black" x="4" y="1"/>
+	<use xlink:href="#black" x="6" y="1"/>
+	<use xlink:href="#black" x="8" y="1"/>
+	<use xlink:href="#black" x="1" y="2"/>
+	<use xlink:href="#black" x="3" y="2"/>
+	<use xlink:href="#black" x="5" y="2"/>
+	<use xlink:href="#black" x="7" y="2"/>
+	<use xlink:href="#black" x="2" y="3"/>
+	<use xlink:href="#black" x="4" y="3"/>
+	<use xlink:href="#black" x="6" y="3"/>
+	<use xlink:href="#black" x="8" y="3"/>
+
+	<use xlink:href="#white" x="1" y="6"/>
+	<use xlink:href="#white" x="3" y="6"/>
+	<use xlink:href="#white" x="5" y="6"/>
+	<use xlink:href="#white" x="7" y="6"/>
+	<use xlink:href="#white" x="2" y="7"/>
+	<use xlink:href="#white" x="4" y="7"/>
+	<use xlink:href="#white" x="6" y="7"/>
+	<use xlink:href="#white" x="8" y="7"/>
+	<use xlink:href="#white" x="1" y="8"/>
+	<use xlink:href="#white" x="3" y="8"/>
+	<use xlink:href="#white" x="5" y="8"/>
+	<use xlink:href="#white" x="7" y="8"/>
+
+</g>	
+
+</svg>
