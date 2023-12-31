@@ -83,6 +83,19 @@ export interface Experience extends  Omit<Project,  'shortDescription'> {
 	tasks?: [String];
 }
 
+
+
+export interface Writing {
+	icon: string;
+	featured: string;
+	slug: string;
+	title: string, 
+	shortDescription: string;
+	datePublished: Date;
+	content: string;
+	tags: Array<string>;
+}
+
 export interface PageParams {
 	title: string;
 }
@@ -103,6 +116,9 @@ export interface HomePageParams extends PageParams {
 	links: Array<HomeLink>;
 	skills?: Array<Skill>;
 }
+
+
+
 
 export type SearchPageParams = PageParams;
 
