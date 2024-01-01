@@ -41,8 +41,9 @@
 				</a>
 			{/each}
 		</div>
+		<div></div>
 		<a
-			class=" row items-center border-1 rounded-md my-4 outline-1"
+			class=" w-auto decoration-none text-blue-800 row items-center border-1 rounded-md"
 			target="_blank"
 			href="https://drive.google.com/file/d/1Qw9Mu0RcWMFCzQ-HRNHcKHI91l1gV_5o/view?usp=sharing"
 		>
