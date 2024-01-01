@@ -4,6 +4,7 @@
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 	import { HOME, TITLE_SUFFIX, getPlatfromIcon } from '$lib/params';
 	import MY_SKILLS from '$lib/skills.params';
+	import { Icons } from '$lib/utils';
 	import { useTitle } from '$lib/utils/helpers';
 	import { isBlank } from '@riadh-adrani/utils';
 
@@ -39,8 +40,14 @@
 					<Icon icon={getPlatfromIcon(link.platform)} color={'var(--accent-text)'} size={'20px'} />
 				</a>
 			{/each}
-			Resumé
 		</div>
+		<a
+			class=" row items-center border-1 rounded-md my-4 outline-1"
+			target="_blank"
+			href="https://drive.google.com/file/d/1Qw9Mu0RcWMFCzQ-HRNHcKHI91l1gV_5o/view?usp=sharing"
+		>
+			<Icon icon={Icons.Resume} size={'20px'} /> <span class="px-2">View Resumé</span>
+		</a>
 	</div>
 	<Carrousel items={skills ?? MY_SKILLS} />
 </div>

@@ -48,8 +48,7 @@ export const HOME: HomePageParams = {
 	title: 'Home',
 	name: 'Glen',
 	lastName: 'Nfor',
-	description: `
-	I am an engineer at heart and a learner by choice.  I love solving nifty challenges and learning everything new. Reach to chat or to work.`, 
+	description: `I am a curious person and avid learner. I love building, learning and reading. I study Electrical ad Computer Engineering. Reach to chat or to work.`, 
 	links: [
 		{ platform: Platform.GitHub, link: 'https://github.com/glenn-po' },
 		{
