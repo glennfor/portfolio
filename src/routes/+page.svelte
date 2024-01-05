@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Carrousel from '$lib/components/Carrousel/Carrousel.svelte';
+	import Chip from '$lib/components/Chip/Chip.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 	import { HOME, TITLE_SUFFIX, getPlatfromIcon } from '$lib/params';
@@ -41,14 +42,16 @@
 				</a>
 			{/each}
 		</div>
-		<div></div>
-		<a
-			class=" w-auto decoration-none text-blue-800 row items-center border-1 rounded-md"
-			target="_blank"
-			href="https://drive.google.com/file/d/1Qw9Mu0RcWMFCzQ-HRNHcKHI91l1gV_5o/view?usp=sharing"
-		>
-			<Icon icon={Icons.Resume} size={'20px'} /> <span class="px-2">View Resumé</span>
-		</a>
+		<div class="block text-center md:text-left">
+			<Chip
+				target="_blank"
+				href="https://drive.google.com/file/d/1T33ru144YpaD9MKOs8Y7lQyWDq_2VYIx/view?usp=sharing"
+			>
+				<span class="row justify-center items-center">
+					<Icon icon={Icons.Resume} size={'20px'} /> <span class="px-2">View Resumé</span>
+				</span>
+			</Chip>
+		</div>
 	</div>
 	<Carrousel items={skills ?? MY_SKILLS} />
 </div>
