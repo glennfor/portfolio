@@ -20,10 +20,8 @@ export const NavBar = {
 	personal: 'Projects',
 	career: 'Experiences',
 	writing: 'Writing',
-	skills: 'Skills',
+	skills: 'Skills'
 };
-
-
 
 export const getPlatfromIcon = (platform: Platform): Icons => {
 	switch (platform) {
@@ -48,9 +46,8 @@ export const HOME: HomePageParams = {
 	title: 'Home',
 	name: 'Glen',
 	lastName: 'Nfor',
-	description: 
-	`Welcome to my corner of the digital world! I'm a passionate explorer and lifelong learner with an insatiable curiosity and a knack for turning ideas into reality. Reach to chat or to work.`,
-	
+	description: `Welcome to my corner of the digital world! I'm a passionate explorer and lifelong learner with an insatiable curiosity and a knack for turning ideas into reality. Reach out to chat or to work.`,
+
 	links: [
 		{ platform: Platform.GitHub, link: 'https://github.com/glenn-po' },
 		{
@@ -97,7 +94,7 @@ export const SKILLS: SkillsPageParams = {
 
 export const WRITING: ResumePageParams = {
 	title: 'Writing',
-	items: WRITINGS,
+	items: WRITINGS
 };
 
 export const SEARCH: SearchPageParams = {
