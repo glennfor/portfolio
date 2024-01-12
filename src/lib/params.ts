@@ -54,26 +54,26 @@ export const HOME: HomePageParams = {
 			platform: Platform.Linkedin,
 			link: 'https://www.linkedin.com/in/glenn-yinyu'
 		},
-		{
-			platform: Platform.Twitter,
-			link: 'https://twitter.com/GlenNforY'
-		},
-		{
-			platform: Platform.StackOverflow,
-			link: 'https://stackoverflow.com/'
-		},
+		// {
+		// 	platform: Platform.Twitter,
+		// 	link: 'https://twitter.com/GlenNforY'
+		// },
+		// {
+		// 	platform: Platform.StackOverflow,
+		// 	link: 'https://stackoverflow.com/'
+		// },
 		{
 			platform: Platform.Email,
 			link: 'hello@glennfor.tech'
-		},
-		{
-			platform: Platform.Youtube,
-			link: 'https://www.youtube.com/channel/UCZnX2h4pcqDEc_8Q114npKw'
-		},
-		{
-			platform: Platform.Facebook,
-			link: 'https://www.facebook.com/nfor.glen.1'
 		}
+		// {
+		// 	platform: Platform.Youtube,
+		// 	link: 'https://www.youtube.com/channel/UCZnX2h4pcqDEc_8Q114npKw'
+		// },
+		// {
+		// 	platform: Platform.Facebook,
+		// 	link: 'https://www.facebook.com/nfor.glen.1'
+		// }
 	]
 };
 
