@@ -49,7 +49,7 @@ export const HOME: HomePageParams = {
 	description: `Welcome to my corner of the digital world! I'm a passionate explorer and lifelong learner with an insatiable curiosity and a knack for turning ideas into reality. Reach out to chat or to work.`,
 
 	links: [
-		{ platform: Platform.GitHub, link: 'https://github.com/glenn-po' },
+		{ platform: Platform.GitHub, link: 'https://github.com/glennfor' },
 		{
 			platform: Platform.Linkedin,
 			link: 'https://www.linkedin.com/in/glenn-yinyu'
