@@ -46,7 +46,7 @@ export const HOME: HomePageParams = {
 	title: 'Home',
 	name: 'Glen',
 	lastName: 'Nfor',
-	description: `Welcome to my corner of the digital world! I'm a passionate explorer and lifelong learner with an insatiable curiosity and a knack for turning ideas into reality. Reach out to chat or to work.`,
+	description: `Welcome to my corner of the digital world! I'm a passionate explorer and lifelong learner with an insatiable curiosity and a knack for turning ideas into reality. Reach out to chat or collaborate.`,
 
 	links: [
 		{ platform: Platform.GitHub, link: 'https://github.com/glennfor' },

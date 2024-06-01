@@ -33,7 +33,7 @@
 		<div class="row justify-center md:justify-start p-y-15px p-x-0px gap-2">
 			{#each links as link}
 				<a
-					class="decoration-none"
+					class="decoration-none flex items-center justify-center p-x-2px"
 					href={`${isEmail(link.link) ? 'mailto:' : ''}${link.link}`}
 					target="_blank"
 					rel="noreferrer"
@@ -41,16 +41,16 @@
 					<Icon icon={getPlatfromIcon(link.platform)} color={'var(--accent-text)'} size={'20px'} />
 				</a>
 			{/each}
-		</div>
-		<div class="block text-center md:text-left">
-			<Chip
-				target="_blank"
-				href="https://drive.google.com/file/d/1T33ru144YpaD9MKOs8Y7lQyWDq_2VYIx/view?usp=sharing"
-			>
-				<span class="row justify-center items-center">
-					<Icon icon={Icons.Resume} size={'20px'} /> <span class="px-2">View Resumé</span>
-				</span>
-			</Chip>
+			<div class="block text-center md:text-left cursor-pointer pointer-cursor p-x-20px">
+				<Chip
+					target="_blank"
+					href="https://drive.google.com/file/d/1T33ru144YpaD9MKOs8Y7lQyWDq_2VYIx/view?usp=sharing"
+				>
+					<span class="row justify-center items-center">
+						<Icon icon={Icons.Resume} size={'20px'} /> <span class="px-2">View Resumé</span>
+					</span>
+				</Chip>
+			</div>
 		</div>
 	</div>
 	<Carrousel items={skills ?? MY_SKILLS} />
