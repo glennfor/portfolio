@@ -1,88 +1,90 @@
 <script lang="ts">
-	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
-
-	import Banner from '$lib/components/Banner/Banner.svelte';
-	import CardDivider from '$lib/components/Card/CardDivider.svelte';
-	import Chip from '$lib/components/Chip/Chip.svelte';
-	import UIcon from '$lib/components/Icon/UIcon.svelte';
-	import Markdown from '$lib/components/Markdown.svelte';
-	import TabTitle from '$lib/components/TabTitle.svelte';
-	import { getAssetURL } from '$lib/data/assets';
-	import { WRITING } from '$lib/params';
+	import DesignIcon from '$lib/design/DesignIcon.svelte';
+	import DesignMarkdown from '$lib/design/DesignMarkdown.svelte';
+	import {
+		WRITINGS,
+		formatPublishedDate,
+		getWritingStatus
+	} from '$lib/design/content';
 	import type { Writing } from '$lib/types';
 
 	export let data: { writing?: Writing };
 
-	const { title } = WRITING;
-
-	$: computedTitle = data.writing ? `${data.writing.title} - ${title}` : title;
+	$: writing = data.writing;
+	$: currentIndex = writing ? WRITINGS.findIndex((item) => item.slug === writing?.slug) : -1;
+	$: nextWriting =
+		currentIndex >= 0 ? WRITINGS[(currentIndex + 1) % WRITINGS.length] : undefined;
 </script>
 
-<TabTitle title={computedTitle} />
+<svelte:head>
+	<title>{writing ? writing.title : 'Writing not found'} — Glen Nfor</title>
+	{#if writing}
+		<meta name="description" content={writing.shortDescription} />
+	{/if}
+</svelte:head>
 
-<div class="pb-10 overflow-x-hidden col flex-1">
-	{#if data.writing === undefined}
-		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)]">
-			<UIcon icon="i-carbon-cube" classes="text-3.5em" />
-			<p class="font-300">Could not load blog data...</p>
+{#if !writing}
+	<section class="design-page">
+		<div class="design-empty">
+			<strong>Writing not found.</strong>
+			<a class="design-inline-link" href="/writing">Return to the archive ↗</a>
 		</div>
-	{:else}
-		<div class="flex flex-col items-center overflow-x-hidden">
-			<Banner img={getAssetURL(data.writing.featured)}>
-				<div class="col-center p-y-20">
-					<div class="text-0.9em">
-						<MainTitle>{data.writing.title}</MainTitle>
-					</div>
-					<p class="font-300 text-center text-[var(--tertiary-text)] m-y-2">
-						{data.writing.shortDescription}
-					</p>
-					<div class="w-75%">
-						<CardDivider />
-					</div>
-
-					<div class="row-center flex-wrap">
-						{#each data.writing.tags as item}
-							<Chip classes="inline-flex flex-row items-center justify-center">
-								<span class="text-[0.9em]">{item}</span>
-							</Chip>
-						{/each}
-					</div>
+	</section>
+{:else}
+	<article>
+		<header class="design-detail-header">
+			<p class="design-eyebrow">Writing / {getWritingStatus(writing.slug)}</p>
+			<h1 class="design-detail-title">{writing.title}</h1>
+			<p class="design-detail-lead">{writing.shortDescription}</p>
+			<div class="design-detail-facts">
+				<div>
+					<span class="design-label">Date</span>
+					<strong>{formatPublishedDate(writing.datePublished)}</strong>
 				</div>
-			</Banner>
-			<div class="pt-2 pb-1 overflow-x-hidden w-full">
-				<div class="px-10px m-y-5">
-					{#if data.writing.content}
-						<Markdown content={data.writing.content} />
-					{:else}
-						<div class="p-5 col-center gap-3 m-y-auto text-[var(--border)]">
-							<UIcon icon="i-carbon-text-font" classes="text-3.5em" />
-							<p class="font-300">No content for this blog</p>
-						</div>
-					{/if}
+				<div>
+					<span class="design-label">Topics</span>
+					<strong>{writing.tags.join(' / ')}</strong>
 				</div>
-				<div class="w-100% m-t-8">
-					<CardDivider />
+				<div>
+					<span class="design-label">Status</span>
+					<strong>{getWritingStatus(writing.slug)}</strong>
+				</div>
+				<div>
+					<span class="design-label">Archive</span>
+					<strong><a class="design-inline-link" href="/writing">All writing ↗</a></strong>
 				</div>
 			</div>
+		</header>
+
+		<div class="design-detail-content">
+			<aside class="design-sidebar">
+				<p class="design-label">Filed under</p>
+				<div class="design-tags">
+					{#each writing.tags as tag}
+						<span class="design-tag">{tag}</span>
+					{/each}
+				</div>
+			</aside>
+
+			<div>
+				{#if writing.slug === 'java-elegance'}
+					<div class="design-placeholder" style="margin-bottom: 36px">
+						<strong>This is a draft note.</strong>
+						<p>The source currently contains only an opening heading. It is preserved here without inventing the missing article.</p>
+					</div>
+				{/if}
+				<DesignMarkdown content={writing.content} />
+			</div>
 		</div>
+	</article>
+
+	{#if nextWriting && nextWriting.slug !== writing.slug}
+		<section class="design-contact">
+			<p>Read next: {nextWriting.title}</p>
+			<a href={`/writing/${nextWriting.slug}`}>
+				<span>{nextWriting.shortDescription}</span>
+				<DesignIcon name="arrow-up-right" />
+			</a>
+		</section>
 	{/if}
-</div>
-
-<style>
-	/* * > button {
-		background-color: yellow !important;
-		outline: none;
-		border: 0;
-	} */
-
-	/*TODO  update this change
-	 - Flowbite has a huge problem wherein I cannot style the buttons of containing the indicators or thumbnails
-	 - This makeshift takes care of that at the moment
-	*/
-
-	/* button:has(.remove-btn-style) {
-		background-color: yellow !important;
-		outline: none;
-		border: 0;
-	} */
-</style>
+{/if}

@@ -1,11 +1,6 @@
-import MY_SKILLS from '$lib/skills.params';
+import { findSkill, relatedToSkill } from '$lib/design/content';
 
 export function load({ params }: { params: Record<string, string> }) {
-	if (params.slug) {
-		const skill = MY_SKILLS.find((item) => {
-			return item.slug === params.slug;
-		});
-
-		return { skill };
-	}
+	const skill = findSkill(params.slug);
+	return { skill, related: skill ? relatedToSkill(skill) : undefined };
 }

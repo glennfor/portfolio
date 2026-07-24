@@ -23,7 +23,7 @@
 	const period = `${from} - ${to} · ${months}`;
 </script>
 
-<Card margin="0px 0px 20px 0px" tiltDegree={2} href={`${base}/experience/${experience.slug}`}>
+<Card margin="0px 0px 20px 0px" tiltDegree={2} href={`${base}/old/eureka/experience/${experience.slug}`}>
 	<div class="col md:flex-row items-start gap-5 md:gap-1">
 		<CardLogo src={getAssetURL(experience.logo)} alt={experience.company} size={75} />
 		<div class="col ml-0 md:ml-[20px] gap-3 w-full">
@@ -50,7 +50,7 @@
 					<ChipIcon
 						logo={getAssetURL(skill.logo)}
 						name={skill.name}
-						href={`${base}/skills/${skill.slug}`}
+						href={`${base}/old/eureka/skills/${skill.slug}`}
 					/>
 				{/each}
 			</div>

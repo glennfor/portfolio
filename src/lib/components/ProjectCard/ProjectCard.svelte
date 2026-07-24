@@ -24,7 +24,7 @@
 		: 'now';
 </script>
 
-<Card color={project.color} href={`${base}/projects/${project.slug}`}>
+<Card color={project.color} href={`${base}/old/eureka/projects/${project.slug}`}>
 	<div class="card">
 		<div class="info">
 			<CardLogo alt={project.name} src={getAssetURL(project.logo)} size={40} radius={'0'} />
@@ -58,7 +58,7 @@
 					<ChipIcon
 						logo={getAssetURL(tech.logo)}
 						name={tech.name}
-						href={`${base}/skills/${tech.slug}`}
+						href={`${base}/old/eureka/skills/${tech.slug}`}
 					/>
 				{/each}
 			</div>

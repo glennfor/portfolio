@@ -1,93 +1,82 @@
 <script lang="ts">
-	import CardLogo from '$lib/components/Card/CardLogo.svelte';
-	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
+	import DesignIcon from '$lib/design/DesignIcon.svelte';
+	import { profile, type DesignExperience } from '$lib/design/content';
 
-	import { base } from '$app/paths';
-	import type { Experience } from '$lib/types';
-	import { getAssetURL } from '$lib/data/assets';
-	import { EXPERIENCES } from '$lib/params';
-	import Markdown from '$lib/components/Markdown.svelte';
-	import TabTitle from '$lib/components/TabTitle.svelte';
-	import Chip from '$lib/components/Chip/Chip.svelte';
-	import Banner from '$lib/components/Banner/Banner.svelte';
-	import UIcon from '$lib/components/Icon/UIcon.svelte';
-	import CardDivider from '$lib/components/Card/CardDivider.svelte';
-	import { getTimeDiff } from '$lib/utils';
+	export let data: { experience?: DesignExperience };
 
-	export let data: { experience?: Experience };
-
-	const { title } = EXPERIENCES;
-
-	$: computedTitle = data.experience ? `${data.experience.name} - ${title}` : title;
+	$: experience = data.experience;
 </script>
 
-<TabTitle title={computedTitle} />
+<svelte:head>
+	<title>{experience ? `${experience.organization} — Experience` : 'Experience not found'} — Glen Nfor</title>
+	{#if experience}
+		<meta name="description" content={experience.summary} />
+	{/if}
+</svelte:head>
 
-<div class="pb-10 overflow-x-hidden col flex-1">
-	{#if data.experience === undefined}
-		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)]">
-			<UIcon icon="i-carbon-cube" classes="text-3.5em" />
-			<p class="font-300">Could not load experience data...</p>
+{#if !experience}
+	<section class="design-page">
+		<div class="design-empty">
+			<strong>Experience not found.</strong>
+			<a class="design-inline-link" href="/experience">Return to experience ↗</a>
 		</div>
-	{:else}
-		<div class="flex flex-col items-center overflow-x-hidden">
-			<Banner img={getAssetURL(data.experience.logo)}>
-				<div class="col-center p-y-20">
-					<div class="text-0.9em">
-						<MainTitle>{data.experience.name}</MainTitle>
-					</div>
-					<p class="font-300 text-[var(--tertiary-text)] m-y-2 text-center">
-						{data.experience.company} · {data.experience.location} · {data.experience.type}
-					</p>
-					<p class="font-300 text-0.9em text-[var(--tertiary-text)] m-y-2 text-center">
-						{getTimeDiff(data.experience.period.from, data.experience.period.to)}
-					</p>
-					<div class="w-75%">
-						<CardDivider />
-					</div>
-					<div class="row-center flex-wrap text-[0.9em] text-[var(--tertiary-text)] m-b-2">
-						{#each data.experience.links as item}
-							<Chip href={item.to}>
-								<div class="row-center gap-2">
-									<UIcon icon="i-carbon-link" />
-									<span>{item.label}</span>
-								</div>
-							</Chip>
-						{/each}
-					</div>
-					<div class="row-center flex-wrap m-b-2">
-						{#each data.experience.skills as item}
-							<Chip
-								classes="inline-flex flex-row items-center justify-center"
-								href={`${base}/skills/${item.slug}`}
-							>
-								<CardLogo
-									src={getAssetURL(item.logo)}
-									alt={item.name}
-									radius={'0px'}
-									size={15}
-									classes="mr-2"
-								/>
-								<span class="text-[0.9em]">{item.name}</span>
-							</Chip>
-						{/each}
-					</div>
+	</section>
+{:else}
+	<article>
+		<header class="design-detail-header">
+			<p class="design-eyebrow">Experience / {experience.organization}</p>
+			<h1 class="design-detail-title">{experience.role}</h1>
+			<p class="design-detail-lead">{experience.summary}</p>
+
+			<div class="design-detail-facts">
+				<div>
+					<span class="design-label">Organisation</span>
+					<strong>{experience.organization}</strong>
 				</div>
-			</Banner>
-			<div class="pt-3 pb-1 overflow-x-hidden w-full">
-				<div class="px-10px m-y-5">
-					{#if data.experience.description}
-						<Markdown
-							content={data.experience.description ?? 'This place is yet to be filled...'}
-						/>
-					{:else}
-						<div class="p-5 col-center gap-3 m-y-auto text-[var(--border)]">
-							<UIcon icon="i-carbon-text-font" classes="text-3.5em" />
-							<p class="font-300">No description...</p>
-						</div>
-					{/if}
+				<div>
+					<span class="design-label">Period</span>
+					<strong>{experience.startDate} — {experience.endDate}</strong>
+				</div>
+				<div>
+					<span class="design-label">Location</span>
+					<strong>{experience.location}</strong>
+				</div>
+				<div>
+					<span class="design-label">Priority</span>
+					<strong>{experience.priority} experience</strong>
 				</div>
 			</div>
+		</header>
+
+		<div class="design-detail-content">
+			<aside class="design-sidebar">
+				<p class="design-label">Technologies and themes</p>
+				<div class="design-tags">
+					{#each experience.technologies as technology}
+						<span class="design-tag">{technology}</span>
+					{/each}
+				</div>
+				<a class="design-inline-link" href="/experience">← Full experience</a>
+			</aside>
+
+			<div class="design-prose">
+				<h2>Overview</h2>
+				<p>{experience.summary}</p>
+				<h2>Contributions</h2>
+				<ul>
+					{#each experience.contributions as contribution}
+						<li>{contribution}</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
-	{/if}
-</div>
+	</article>
+
+	<section class="design-contact">
+		<p>Want to discuss the engineering behind this work?</p>
+		<a href={`mailto:${profile.email}`}>
+			<span>Start a conversation</span>
+			<DesignIcon name="arrow-up-right" />
+		</a>
+	</section>
+{/if}

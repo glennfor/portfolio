@@ -1,99 +1,122 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { base } from '$app/paths';
-	import { SEARCH } from '$lib/params';
-	import SearchPage from '$lib/components/SearchPage.svelte';
-	import MY_EXPERIENCES from '$lib/experiences.params';
-	import MY_PROJECTS from '$lib/projects.params';
-	import MY_SKILLS from '$lib/skills.params';
-	import Chip from '$lib/components/Chip/Chip.svelte';
-	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import DesignIcon from '$lib/design/DesignIcon.svelte';
+	import { WRITINGS, experiences, leadership, projects, skills } from '$lib/design/content';
 
-	const { title } = SEARCH;
-
-	type Item<T = unknown> = {
-		icon: string;
-		name: string;
-		data: T;
-		to: string;
+	type SearchResult = {
+		type: string;
+		title: string;
+		description: string;
+		href: string;
 	};
 
 	let query = '';
-	let mounted = false;
-	let result: Array<Item> = [];
 
-	onMount(() => {
-		let searchParams = new URLSearchParams(window.location.search);
-
-		query = searchParams.get('q') ?? '';
-		mounted = true;
-	});
-
-	$: {
-		result = [];
-
-		// filter
-		result.push(
-			...MY_PROJECTS.filter((item) => query && item.name.toLowerCase().includes(query)).map<Item>(
-				(data) => ({
-					data,
-					icon: 'i-carbon-cube',
-					name: data.name,
-					to: `projects/${data.slug}`
-				})
-			)
-		);
-
-		result.push(
-			...MY_SKILLS.filter((item) => query && item.name.toLowerCase().includes(query)).map<Item>(
-				(data) => ({
-					data,
-					icon: 'i-carbon-software-resource-cluster',
-					name: data.name,
-					to: `skills/${data.slug}`
-				})
-			)
-		);
-
-		result.push(
-			...MY_EXPERIENCES.filter(
-				(item) =>
-					query &&
-					(item.name.toLowerCase().includes(query) || item.company.toLowerCase().includes(query))
-			).map<Item>((data) => ({
-				data,
-				icon: 'i-carbon-development',
-				name: `${data.name} @ ${data.company}`,
-				to: `experience/${data.slug}`
-			}))
-		);
-	}
+	$: normalizedQuery = query.trim().toLowerCase();
+	$: results = normalizedQuery
+		? [
+				...projects
+					.filter((item) =>
+						`${item.name} ${item.summary} ${item.category.join(' ')} ${item.technologies.join(' ')}`
+							.toLowerCase()
+							.includes(normalizedQuery)
+					)
+					.map<SearchResult>((item) => ({
+						type: 'Project',
+						title: item.name,
+						description: item.summary,
+						href: `/projects/${item.slug}`
+					})),
+				...experiences
+					.filter((item) =>
+						`${item.organization} ${item.role} ${item.summary} ${item.technologies.join(' ')}`
+							.toLowerCase()
+							.includes(normalizedQuery)
+					)
+					.map<SearchResult>((item) => ({
+						type: 'Experience',
+						title: item.organization,
+						description: `${item.role} · ${item.summary}`,
+						href: `/experience/${item.slug}`
+					})),
+				...leadership
+					.filter((item) =>
+						`${item.organization} ${item.role} ${item.summary}`.toLowerCase().includes(normalizedQuery)
+					)
+					.map<SearchResult>((item) => ({
+						type: item.kind,
+						title: item.organization,
+						description: `${item.role} · ${item.summary}`,
+						href: `/leadership#${item.slug}`
+					})),
+				...skills
+					.filter((item) => `${item.name} ${item.group}`.toLowerCase().includes(normalizedQuery))
+					.map<SearchResult>((item) => ({
+						type: 'Skill',
+						title: item.name,
+						description: item.group,
+						href: `/skills/${item.slug}`
+					})),
+				...WRITINGS.filter((item) =>
+					`${item.title} ${item.shortDescription} ${item.tags.join(' ')}`
+						.toLowerCase()
+						.includes(normalizedQuery)
+				).map<SearchResult>((item) => ({
+					type: 'Writing',
+					title: item.title,
+					description: item.shortDescription,
+					href: `/writing/${item.slug}`
+				}))
+			]
+		: [];
 </script>
 
-<SearchPage {title} on:search={(e) => (query = e.detail.search)}>
-	<div class="flex flex-col items-stretch gap-10 p-2" />
-	{#if !query}
-		<div class="flex-1 self-center col-center m-t-10 gap-5 font-300 text-[var(--accent-text)]">
-			<UIcon icon="i-carbon-search-locate-mirror" classes="text-2em" />
-			<span> Try typing something... </span>
-		</div>
-	{:else}
-		<div>
-			{#if result.length === 0}
-				<div class="flex-1 self-center col-center m-t-10 gap-5 font-300 text-[var(--accent-text)]">
-					<UIcon icon="i-carbon-cube" classes="text-2em" />
-					<span> Oops ! nothing to show ! </span>
-				</div>
-			{:else}
-				<div class="flex flex-row flex-wrap gap-1">
-					{#each result as item}
-						<Chip href={`${base}/${item.to}`} classes="flex flex-row items-center gap-2">
-							<UIcon icon={item.icon} />
-							<span>{item.name}</span>
-						</Chip>
-					{/each}
-				</div>
-			{/if}
-		</div>
-	{/if}
-</SearchPage>
+<svelte:head>
+	<title>Search — Glen Nfor</title>
+	<meta name="description" content="Search Glen Nfor's work, experience, leadership, and skills." />
+</svelte:head>
+
+<section class="design-page">
+	<header class="design-page-header">
+		<p class="design-eyebrow">Search / All content</p>
+		<h1>Find something.</h1>
+		<p>Search production work, AI, software, robotics, hardware, leadership, and writing.</p>
+	</header>
+
+	<label class="design-label" for="portfolio-search">Search the portfolio</label>
+	<div class="design-search-field">
+		<DesignIcon name="search" size={28} />
+		<input
+			id="portfolio-search"
+			class="design-search"
+			type="search"
+			bind:value={query}
+			placeholder="Try Amazon, ROS 2, GraphQL, robotics…"
+			autocomplete="off"
+		/>
+	</div>
+
+	<div class="design-list" style="margin-top: 44px">
+		{#if !normalizedQuery}
+			<div class="design-empty">
+				<DesignIcon name="search" size={24} />
+				<strong>Start typing to search.</strong>
+				<p>Try “Amazon”, “autonomous”, “AI”, “Java”, or “hardware”.</p>
+			</div>
+		{:else if results.length === 0}
+			<div class="design-empty">
+				<DesignIcon name="search" size={24} />
+				<strong>No results for “{query}”.</strong>
+				<p>Try a broader project, technology, organisation, or topic.</p>
+			</div>
+		{:else}
+			{#each results as result}
+				<a class="design-list-row" href={result.href}>
+					<span class="design-label">{result.type}</span>
+					<strong>{result.title}</strong>
+					<p>{result.description}</p>
+					<DesignIcon name="arrow-up-right" />
+				</a>
+			{/each}
+		{/if}
+	</div>
+</section>

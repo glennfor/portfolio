@@ -6,28 +6,28 @@
 	import { base } from '$app/paths';
 	import UIcon from '../Icon/UIcon.svelte';
 
+	const LEGACY_ROOT = '/old/eureka';
+
 	let currentRoute = '/';
 
 	$: {
 		if ($page) {
 			currentRoute = $page.url.pathname;
-
-			// console.log(currentRoute);
 		}
 	}
 
 	const items = [
-		{ title: NavBar.personal, to: '/projects', icon: 'i-carbon-cube' },
-		{ title: NavBar.skills, to: '/skills', icon: 'i-carbon-software-resource-cluster' },
-		{ title: NavBar.career, to: '/experience', icon: 'i-carbon-development' },
-		{ title: NavBar.writing, to: '/writing', icon: 'i-carbon-result' }
+		{ title: NavBar.personal, to: `${LEGACY_ROOT}/projects`, icon: 'i-carbon-cube' },
+		{ title: NavBar.skills, to: `${LEGACY_ROOT}/skills`, icon: 'i-carbon-software-resource-cluster' },
+		{ title: NavBar.career, to: `${LEGACY_ROOT}/experience`, icon: 'i-carbon-development' },
+		{ title: NavBar.writing, to: `${LEGACY_ROOT}/writing`, icon: 'i-carbon-result' }
 	];
 </script>
 
 <div class="nav-menu">
 	<nav class="container !justify-between flex flex-row items-center text-sm">
 		<a
-			href={`${base}/`}
+			href={`${base}${LEGACY_ROOT}`}
 			class="nav-menu-left decoration-none flex flex-row items-center cursor-pointer px-4 text-[var(--secondary-text)] self-stretch hover:bg-[color:var(--main-hover)]"
 		>
 			<UIcon icon="i-carbon-code" classes="text-2em" />
@@ -43,7 +43,7 @@
 		</div>
 		<div class="flex flex-row self-stretch items-stretch gap-1 text-1.15em">
 			<a
-				href={`${base}/search`}
+				href={`${base}${LEGACY_ROOT}/search`}
 				class="text-inherit col-center self-stretch px-2 hover:bg-[color:var(--main-hover)]"
 			>
 				<UIcon icon="i-carbon-search" />
