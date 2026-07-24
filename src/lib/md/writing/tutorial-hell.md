@@ -1,6 +1,19 @@
+<link href="style.css" rel="stylesheet">
+<style>
+	 p {
+		font-size: 40px;
+		color: green;
+	}
+	.markdown-container > img {
+		display: inline-block;
+		padding-inline: auto;
+		width: 100% !important;
+		padding-bottom: 100px;
+	}
+</style>
 # My personal experience with tutorial hell
 
-![image info](https://picsum.photos/400/200)
+## ![image info](https://picsum.photos/400/200)
 
 Hello, everyone! I'm a computer engineering student who loves to learn new things and challenge myself. But sometimes, I bite off more than I can chew and end up in what some people call "tutorial hell". What is tutorial hell, you ask? Well, it's when you spend more time watching or reading tutorials than actually doing something with what you learned. It's when you feel like you need to learn everything before you can start a project. It's when you get overwhelmed by the amount of information and options available and lose motivation.
 

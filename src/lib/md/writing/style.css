@@ -1,0 +1,10 @@
+p {
+	font-size: 40px;
+	color: green;
+}
+img {
+	display: inline-block;
+	padding-inline: auto;
+	width: 100% !important;
+	padding-bottom: 100px;
+}

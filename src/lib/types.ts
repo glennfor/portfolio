@@ -86,10 +86,11 @@ export interface Project extends Item {
 	categories: Array<Category>;
 }
 
-export interface Experience extends  Omit<Project,  'shortDescription'> {
+export interface Experience extends Omit<Project, 'shortDescription' | 'categories'> {
 	company: string;
 	location: string;
 	contract: ContractType;
+	tasks?: Array<string>;
 }
 
 
