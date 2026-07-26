@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DesignIcon from '$lib/design/DesignIcon.svelte';
+	import DesignSeo from '$lib/design/DesignSeo.svelte';
 	import { profile } from '$lib/design/content';
 
 	const contactLinks = [
@@ -36,11 +37,13 @@
 
 <svelte:head>
 	<title>About — Glen Nfor</title>
-	<meta
-		name="description"
-		content="About Glen Nfor, a Princeton engineering student building production software, AI systems, robotics, and hardware."
-	/>
 </svelte:head>
+
+<DesignSeo
+	title="About"
+	description="About Glen Nfor, a Princeton engineering student building production software, AI systems, robotics, and hardware."
+	path="/about"
+/>
 
 <section class="design-page">
 	<header class="design-page-header">
@@ -94,7 +97,14 @@
 			<div class="design-detail-facts">
 				<div>
 					<span class="design-label">Institution</span>
-					<strong>{profile.education.institution}</strong>
+					<strong>
+						<a
+							class="design-inline-link"
+							href="https://www.princeton.edu/"
+							target="_blank"
+							rel="noreferrer">{profile.education.institution} ↗</a
+						>
+					</strong>
 				</div>
 				<div>
 					<span class="design-label">Degree</span>

@@ -45,7 +45,7 @@ export const projects: Array<DesignProject> = [
 		slug: 'eval-gaming',
 		name: 'EVAL Gaming',
 		summary:
-			'A full-stack college esports recruiting platform for verified player profiles, combines, and coach discovery.',
+			'A full-stack college esports recruiting platform that connects verified player profiles, combines, and coach discovery.',
 		category: ['Software', 'Startup'],
 		technologies: [
 			'Next.js',
@@ -89,6 +89,7 @@ export const projects: Array<DesignProject> = [
 		category: ['AI', 'Software', 'Startup'],
 		technologies: ['AI systems', 'Data pipelines', 'Full-stack software'],
 		role: 'Builder',
+		period: '2024 — Present',
 		status: 'active',
 		tier: 'featured',
 		links: [],
@@ -113,6 +114,7 @@ export const projects: Array<DesignProject> = [
 		category: ['Computer Architecture', 'Hardware'],
 		technologies: ['Proteus', 'Digital logic', 'Computer architecture'],
 		role: 'Processor designer',
+		period: '2025',
 		status: 'completed',
 		tier: 'featured',
 		links: [{ label: 'GitHub', href: 'https://github.com/glennfor/am16k' }],
@@ -138,18 +140,24 @@ export const projects: Array<DesignProject> = [
 		slug: 'coralbots',
 		name: 'Coralbots',
 		summary:
-			'Underwater fish-inspired robots built to investigate collective behaviour in robotic swarms.',
+			'Underwater fish-inspired robots built to investigate collective behavior in robotic swarms.',
 		category: ['Research', 'Robotics', 'Hardware'],
 		technologies: ['Embedded computing', 'Custom imaging', 'Robotics integration'],
 		role: 'Research engineer',
+		period: 'September 2023 — Present',
 		status: 'research',
 		tier: 'featured',
-		links: [],
+		links: [
+			{
+				label: 'Robotics Club',
+				href: 'https://club.robotics.princeton.edu/'
+			}
+		],
 		sections: [
 			{
 				title: 'Research context',
 				content:
-					'The research uses three-dimensional, fish-inspired underwater robots to experimentally study collective behaviour in robotic swarms.'
+					'The research uses three-dimensional, fish-inspired underwater robots to experimentally study collective behavior in robotic swarms.'
 			},
 			{
 				title: 'Contributions',
@@ -175,7 +183,12 @@ export const projects: Array<DesignProject> = [
 		period: 'January 2024 — Present',
 		status: 'active',
 		tier: 'featured',
-		links: [],
+		links: [
+			{
+				label: 'Rover Club',
+				href: 'https://odus.princeton.edu/undergraduate-student-organizations'
+			}
+		],
 		sections: [
 			{
 				title: 'System',
@@ -206,7 +219,7 @@ export const projects: Array<DesignProject> = [
 		period: 'June — November 2023',
 		status: 'completed',
 		tier: 'strong',
-		links: [],
+		links: [{ label: 'TigerApps', href: 'https://tigerapps.org/' }],
 		sections: [
 			{
 				title: 'Product',
@@ -230,7 +243,7 @@ export const projects: Array<DesignProject> = [
 		slug: 'fintria',
 		name: 'Fintria',
 		summary:
-			'An AI-powered finance interview preparation platform with personalised practice and feedback.',
+			'An AI-powered finance interview preparation platform with personalized practice and feedback.',
 		category: ['AI', 'Software', 'Product'],
 		technologies: ['React', 'Vite', 'Firebase', 'OpenAI API', 'RAG', 'Stripe'],
 		role: 'Full-stack AI product engineer',
@@ -242,12 +255,12 @@ export const projects: Array<DesignProject> = [
 			{
 				title: 'Product',
 				content:
-					'Fintria delivers personalised mock interviews, résumé reviews, interactive learning modules, and assessments for finance interview preparation.'
+					'Fintria delivers personalized mock interviews, résumé reviews, interactive learning modules, and assessments for finance interview preparation.'
 			},
 			{
 				title: 'AI workflow',
 				content:
-					'I integrated retrieval-augmented generation to ground personalised practice and feedback in the platform’s learning content.'
+					'I integrated retrieval-augmented generation to ground personalized practice and feedback in the platform’s learning content.'
 			}
 		],
 		media: []
@@ -326,7 +339,7 @@ export const projects: Array<DesignProject> = [
 		period: 'September 2023 — September 2025',
 		status: 'completed',
 		tier: 'strong',
-		links: [],
+		links: [{ label: 'Robotics Club', href: 'https://club.robotics.princeton.edu/' }],
 		sections: [
 			{
 				title: 'Team',
@@ -336,31 +349,52 @@ export const projects: Array<DesignProject> = [
 			{
 				title: 'Engineering focus',
 				content:
-					'The work connected robot firmware, sensors, actuators, real-time behaviour, and higher-level multi-agent strategy.'
+					'The work connected robot firmware, sensors, actuators, real-time behavior, and higher-level multi-agent strategy.'
 			}
 		],
 		media: []
 	},
 	{
-		slug: 'smart-home-automation',
-		name: 'Smart Home Automation',
-		summary: 'An embedded automation system connecting sensors, control logic, and household devices.',
-		category: ['Embedded', 'IoT', 'Hardware'],
-		technologies: ['Arduino', 'Raspberry Pi', 'Sensors'],
-		role: 'Embedded systems builder',
+		slug: 'carlab',
+		name: 'CarLab',
+		summary:
+			'A voice-controlled holonomic robot that interprets conversational commands through an LLM and executes physical actions on a Raspberry Pi–driven omni car.',
+		category: ['Robotics', 'Embedded', 'AI'],
+		technologies: [
+			'Python',
+			'Raspberry Pi',
+			'OpenCV',
+			'LangChain',
+			'Whisper',
+			'Google Gemini',
+			'Deepgram',
+			'GPIO'
+		],
+		role: 'Robotics and systems engineer',
+		period: 'Fall 2025',
 		status: 'completed',
 		tier: 'strong',
-		links: [],
+		links: [{ label: 'GitHub', href: 'https://github.com/glennfor/carlab' }],
 		sections: [
 			{
-				title: 'System',
+				title: 'Project context',
 				content:
-					'The project combined Arduino and Raspberry Pi hardware with sensor inputs and automation logic for household control.'
+					'CarLab was my ECE 302 final project at Princeton: a small mobile robot with pet-like behavior that responds to ambiguous, conversational human commands. Built with Erik Lawani, the goal was to blend embedded motor control, light computer vision, and natural-language reasoning into one physical system.'
 			},
 			{
-				title: 'Focus',
+				title: 'Architecture',
 				content:
-					'The engineering challenge was coordinating sensing, control decisions, communication, and physical outputs across embedded devices.'
+					'The system runs on a modular pipeline—microphone input, speech-to-text, an LLM action planner, text-to-speech output, and an action engine that maps structured commands to movement. A priority-based controller manager lets gamepad, keyboard, OpenCV vision, and LLM inputs coexist, with manual control able to override autonomous modes.'
+			},
+			{
+				title: 'Hardware',
+				content:
+					'The platform is a SuperDroid 3-wheel omni (Kiwi) drive car—fully holonomic with wheels spaced 120° apart—controlled from a Raspberry Pi 4 with a Pi Camera, Adafruit I2S MEMS microphone, speaker, and PWM motor drivers.'
+			},
+			{
+				title: 'Capabilities',
+				content:
+					'The car can step, turn, spin in place, speak responses, capture photos, follow ArUco markers, and execute higher-level skills like maze navigation via audio directions, patterned driving, and object tracking. The LLM validates whether a request is achievable before generating a structured action plan.'
 			}
 		],
 		media: []
@@ -369,10 +403,11 @@ export const projects: Array<DesignProject> = [
 		slug: 'parceflyte',
 		name: 'Parceflyte',
 		summary:
-			'A peer-to-peer delivery concept connecting package senders with travellers who have unused luggage capacity.',
+			'A peer-to-peer delivery concept connecting package senders with travelers who have unused luggage capacity.',
 		category: ['Software', 'Startup'],
-		technologies: ['JavaScript', 'Marketplace design'],
+		technologies: ['React Native', 'Next.js', 'TypeScript', 'Marketplace design'],
 		role: 'Product builder',
+		period: '2024',
 		status: 'concept',
 		tier: 'strong',
 		links: [{ label: 'GitHub', href: 'https://github.com/glennfor/parceflyte-v1' }],
@@ -380,50 +415,12 @@ export const projects: Array<DesignProject> = [
 			{
 				title: 'Concept',
 				content:
-					'Parceflyte explores a trusted marketplace where travellers can hand-carry parcels along routes they already plan to take.'
+					'Parceflyte explores a trusted marketplace where travelers can hand-carry parcels along routes they already plan to take.'
 			},
 			{
 				title: 'Product questions',
 				content:
-					'The concept centres on matching, trust, logistics, traveller capacity, and the experience of coordinating a peer-to-peer delivery.'
-			}
-		],
-		media: []
-	},
-	{
-		slug: 'reepls',
-		name: 'Reepls',
-		summary: 'An independent software product retained in the portfolio pending a deeper public case study.',
-		category: ['Software', 'Product'],
-		technologies: [],
-		role: 'Product contributor',
-		status: 'completed',
-		tier: 'strong',
-		links: [],
-		sections: [
-			{
-				title: 'Status',
-				content:
-					'The project is legitimate work, but its current public status, exact contribution, and external link require a final verification pass before publication.'
-			}
-		],
-		media: []
-	},
-	{
-		slug: 'joballa',
-		name: 'Joballa',
-		summary: 'A job-discovery product retained pending a deeper contribution and status write-up.',
-		category: ['Software', 'Product'],
-		technologies: [],
-		role: 'Product contributor',
-		status: 'completed',
-		tier: 'strong',
-		links: [],
-		sections: [
-			{
-				title: 'Status',
-				content:
-					'Joballa focused on recruitment and job discovery. Its exact current status and my detailed contribution still need to be added before publication.'
+					'The concept centers on matching, trust, logistics, traveler capacity, and the experience of coordinating a peer-to-peer delivery.'
 			}
 		],
 		media: []
@@ -438,7 +435,12 @@ export const projects: Array<DesignProject> = [
 		period: '2023',
 		status: 'archive',
 		tier: 'archive',
-		links: [],
+		links: [
+			{
+				label: 'Live demo',
+				href: 'https://vtcinternationale.pythonanywhere.com/'
+			}
+		],
 		sections: [
 			{
 				title: 'Overview',
@@ -471,7 +473,7 @@ export const projects: Array<DesignProject> = [
 	{
 		slug: 'kingston-library',
 		name: 'Kingston Library',
-		summary: 'A Java desktop application for library accounts, catalogues, and daily operations.',
+		summary: 'A Java desktop application for library accounts, catalogs, and daily operations.',
 		category: ['Desktop', 'Software'],
 		technologies: ['Java', 'JavaFX', 'MySQL'],
 		role: 'Application developer',
@@ -527,7 +529,7 @@ export const projects: Array<DesignProject> = [
 				type: 'image',
 				src: '/images/lib/Screenshot (51).png',
 				alt: 'Kingston Library books catalogue',
-				caption: 'Books catalogue'
+				caption: 'Books catalog'
 			}
 		]
 	},
@@ -675,7 +677,7 @@ export const projects: Array<DesignProject> = [
 			{
 				type: 'image',
 				src: '/images/checkers/checkmate.png',
-				alt: 'Checkers completed game',
+				alt: 'Checkers game won',
 				caption: 'Completed game'
 			}
 		]

@@ -1,10 +1,12 @@
 <script lang="ts">
 	import DesignIcon from '$lib/design/DesignIcon.svelte';
 	import DesignMediaGallery from '$lib/design/DesignMediaGallery.svelte';
+	import DesignSeo from '$lib/design/DesignSeo.svelte';
 	import {
 		getProjectPreview,
 		getProjectWebsite,
 		projects,
+		relatedPortfolioLinks,
 		type DesignProject
 	} from '$lib/design/content';
 
@@ -15,14 +17,20 @@
 	$: nextProject = currentIndex >= 0 ? projects[(currentIndex + 1) % projects.length] : undefined;
 	$: website = project ? getProjectWebsite(project) : undefined;
 	$: preview = project && !project.media.length ? getProjectPreview(project) : undefined;
+	$: relatedLinks = project ? relatedPortfolioLinks[project.slug] ?? [] : [];
 </script>
 
 <svelte:head>
-	<title>{project ? `${project.name} — Projects` : 'Project not found'} — Glen Nfor</title>
-	{#if project}
-		<meta name="description" content={project.summary} />
-	{/if}
+	<title>{project ? `${project.name} — Glen Nfor` : 'Project not found — Glen Nfor'}</title>
 </svelte:head>
+
+{#if project}
+	<DesignSeo
+		title={project.name}
+		description={project.summary}
+		path={`/projects/${project.slug}`}
+	/>
+{/if}
 
 {#if !project}
 	<section class="design-page">
@@ -43,10 +51,17 @@
 					<span class="design-label">Role</span>
 					<strong>{project.role ?? 'Builder'}</strong>
 				</div>
-				<div>
-					<span class="design-label">Period</span>
-					<strong>{project.period ?? 'Date not published'}</strong>
-				</div>
+				{#if project.period}
+					<div>
+						<span class="design-label">Period</span>
+						<strong>{project.period}</strong>
+					</div>
+				{:else if project.status === 'archive'}
+					<div>
+						<span class="design-label">Period</span>
+						<strong>Archive project</strong>
+					</div>
+				{/if}
 				<div>
 					<span class="design-label">Category</span>
 					<strong>{project.category.join(' / ')}</strong>
@@ -82,6 +97,17 @@
 					<h2>{section.title}</h2>
 					<p>{section.content}</p>
 				{/each}
+
+				{#if relatedLinks.length}
+					<h2>Related</h2>
+					<ul>
+						{#each relatedLinks as link}
+							<li>
+								<a class="design-inline-link" href={link.href}>{link.label} ↗</a>
+							</li>
+						{/each}
+					</ul>
+				{/if}
 
 				{#if project.media.length}
 					<h2>Gallery</h2>

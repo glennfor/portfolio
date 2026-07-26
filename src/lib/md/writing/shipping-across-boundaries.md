@@ -1,5 +1,3 @@
-# Shipping across boundaries
-
 I used to think the interesting part of engineering was choosing a stack.
 
 React or Svelte. Python or Java. Cloud services or embedded boards. Software people stayed in software. Hardware people stayed in hardware. If a project crossed those lines, it somehow became someone else’s problem.

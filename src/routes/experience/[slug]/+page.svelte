@@ -1,18 +1,31 @@
 <script lang="ts">
 	import DesignIcon from '$lib/design/DesignIcon.svelte';
-	import { profile, type DesignExperience } from '$lib/design/content';
+	import DesignSeo from '$lib/design/DesignSeo.svelte';
+	import {
+		organizationWebsites,
+		profile,
+		relatedPortfolioLinks,
+		type DesignExperience
+	} from '$lib/design/content';
 
 	export let data: { experience?: DesignExperience };
 
 	$: experience = data.experience;
+	$: organizationWebsite = experience ? organizationWebsites[experience.organization] : undefined;
+	$: relatedLinks = experience ? relatedPortfolioLinks[experience.slug] ?? [] : [];
 </script>
 
 <svelte:head>
 	<title>{experience ? `${experience.organization} — Experience` : 'Experience not found'} — Glen Nfor</title>
-	{#if experience}
-		<meta name="description" content={experience.summary} />
-	{/if}
 </svelte:head>
+
+{#if experience}
+	<DesignSeo
+		title={`${experience.organization} — Experience`}
+		description={experience.summary}
+		path={`/experience/${experience.slug}`}
+	/>
+{/if}
 
 {#if !experience}
 	<section class="design-page">
@@ -30,8 +43,16 @@
 
 			<div class="design-detail-facts">
 				<div>
-					<span class="design-label">Organisation</span>
-					<strong>{experience.organization}</strong>
+					<span class="design-label">Organization</span>
+					<strong>
+						{#if organizationWebsite}
+							<a class="design-inline-link" href={organizationWebsite} target="_blank" rel="noreferrer">
+								{experience.organization} ↗
+							</a>
+						{:else}
+							{experience.organization}
+						{/if}
+					</strong>
 				</div>
 				<div>
 					<span class="design-label">Period</span>
@@ -40,10 +61,6 @@
 				<div>
 					<span class="design-label">Location</span>
 					<strong>{experience.location}</strong>
-				</div>
-				<div>
-					<span class="design-label">Priority</span>
-					<strong>{experience.priority} experience</strong>
 				</div>
 			</div>
 		</header>
@@ -68,13 +85,23 @@
 						<li>{contribution}</li>
 					{/each}
 				</ul>
+				{#if relatedLinks.length}
+					<h2>Related</h2>
+					<ul>
+						{#each relatedLinks as link}
+							<li>
+								<a class="design-inline-link" href={link.href}>{link.label} ↗</a>
+							</li>
+						{/each}
+					</ul>
+				{/if}
 			</div>
 		</div>
 	</article>
 
 	<section class="design-contact">
 		<p>Want to discuss the engineering behind this work?</p>
-		<a href={`mailto:${profile.email}`}>
+		<a href={`mailto:${profile.personalEmail}`}>
 			<span>Start a conversation</span>
 			<DesignIcon name="arrow-up-right" />
 		</a>

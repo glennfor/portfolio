@@ -10,7 +10,8 @@
 		{ label: 'Experience', href: '/experience', icon: 'briefcase' as const },
 		{ label: 'Leadership', href: '/leadership', icon: 'leadership' as const },
 		{ label: 'Skills', href: '/skills', icon: 'skills' as const },
-		{ label: 'About', href: '/about', icon: 'about' as const }
+		{ label: 'About', href: '/about', icon: 'about' as const },
+		{ label: 'Writing', href: '/writing', icon: 'document' as const }
 	];
 
 	let isMenuOpen = false;
@@ -99,7 +100,7 @@
 			<span>Software · AI · Robotics · Hardware</span>
 		</div>
 		<div>
-			<a href={`mailto:${profile.email}`}>Email ↗</a>
+			<a href={`mailto:${profile.personalEmail}`}>Email ↗</a>
 			<a href={profile.links.github} target="_blank" rel="noreferrer">GitHub ↗</a>
 			<a href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
 			<a href="/writing">Writing ↗</a>

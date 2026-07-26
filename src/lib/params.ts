@@ -52,7 +52,7 @@ export const HOME: HomePageParams = {
 		{ platform: Platform.GitHub, link: 'https://github.com/glennfor' },
 		{
 			platform: Platform.Linkedin,
-			link: 'https://www.linkedin.com/in/glenn-yinyu'
+			link: 'https://www.linkedin.com/in/glen-yinyu/'
 		},
 		// {
 		// 	platform: Platform.Twitter,

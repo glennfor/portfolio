@@ -26,7 +26,7 @@ export const experiences: Array<DesignExperience> = [
 	{
 		slug: 'amazon-luna',
 		organization: 'Amazon',
-		role: 'Software Development Engineer APP Intern, Luna Cloud Gaming',
+		role: 'Software Development Engineer Intern, Luna Cloud Gaming',
 		location: 'Irvine, California',
 		startDate: 'June 2025',
 		endDate: 'August 2025',
@@ -35,7 +35,7 @@ export const experiences: Array<DesignExperience> = [
 		contributions: [
 			'Developed end-to-end FAQ support across Java backend services, APIs, and client applications.',
 			'Integrated more than five Java microservices with React, Vega, and Android View clients.',
-			'Supported contextual routing, localization, and fallback behaviour across web, mobile, and smart TV storefront experiences.'
+			'Supported contextual routing, localization, and fallback behavior across web, mobile, and smart TV storefront experiences.'
 		],
 		technologies: ['Java', 'React', 'Vega', 'Android', 'Microservices'],
 		priority: 'primary',
@@ -55,10 +55,10 @@ export const experiences: Array<DesignExperience> = [
 		summary:
 			'Evaluated machine-learning pipelines for forecasting equity-option movements from historical market data.',
 		contributions: [
-			'Designed and evaluated pipelines using XGBoost, Random Forests, and neural networks.',
+			'Designed and evaluated pipelines using XGBoost, Random Forest, and neural networks.',
 			'Performed feature engineering, hyperparameter tuning, and historical backtesting.'
 		],
-		technologies: ['Python', 'XGBoost', 'Random Forests', 'Neural networks'],
+		technologies: ['Python', 'XGBoost', 'Random Forest', 'Neural networks'],
 		priority: 'primary',
 		accent: 'ai'
 	},

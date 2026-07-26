@@ -22,6 +22,8 @@ const slugify = (value: string) =>
 		.replace(/[^a-z0-9]+/g, '-')
 		.replace(/(^-|-$)/g, '');
 
+export const toSkillSlug = slugify;
+
 const skillSummary = (group: DesignSkillGroup, name: string) => {
 	const summaries: Record<string, string> = {
 		Languages: `A programming language used across Glen's software, systems, data, or embedded work.`,
@@ -31,7 +33,7 @@ const skillSummary = (group: DesignSkillGroup, name: string) => {
 			'A systems or infrastructure technology used for services, deployment, APIs, and development workflows.',
 		'Robotics and hardware':
 			'A robotics or hardware tool used to connect software with physical systems.',
-		'Product tools': 'A product-development tool used to design, test, operate, or monetise software.'
+		'Product tools': 'A product-development tool used to design, test, operate, or monetize software.'
 	};
 
 	return summaries[group.name] ?? `${name} is part of Glen's technical toolkit.`;
@@ -58,8 +60,7 @@ export const formatPublishedDate = (date: Date) =>
 		year: 'numeric'
 	}).format(date);
 
-export const getWritingStatus = (slug: string) =>
-	slug === 'java-elegance' ? 'Draft note' : 'Published essay';
+export const getWritingStatus = () => 'Published essay';
 
 export const getProjectAccent = (project: DesignProject): DesignAccent => {
 	if (project.accent) return project.accent;
@@ -142,6 +143,35 @@ export const findLeadership = (slug: string) =>
 	leadership.find((item) => item.slug === slug);
 export const findSkill = (slug: string) => skills.find((skill) => skill.slug === slug);
 export const findWriting = (slug: string) => WRITINGS.find((writing) => writing.slug === slug);
+
+export const organizationWebsites: Record<string, string> = {
+	Amazon: 'https://www.amazon.com',
+	TigerApps: 'https://tigerapps.org/',
+	'QuantCap LLC': 'https://www.quantcap.com/',
+	'Visionary Technologies Company': 'https://www.vtc.cm/',
+	Simba: 'https://www.simba.io/',
+	'Princeton University Robotics Club': 'https://club.robotics.princeton.edu/',
+	'Princeton Rover Club': 'https://odus.princeton.edu/undergraduate-student-organizations',
+	'Princeton Computer Science Department': 'https://www.cs.princeton.edu/',
+	'Underwater Robotics Research': 'https://www.princeton.edu/'
+};
+
+export const relatedPortfolioLinks: Record<string, Array<{ label: string; href: string }>> = {
+	'coralbots': [{ label: 'Underwater Robotics research', href: '/leadership#underwater-robotics' }],
+	'rover-electrical-architecture': [
+		{ label: 'Princeton Rover Club leadership', href: '/leadership#princeton-rover-club' }
+	],
+	'robocubs-firmware': [
+		{ label: 'Princeton Robotics Club leadership', href: '/leadership#princeton-robotics-club' }
+	],
+	'tigerretail': [{ label: 'TigerApps experience', href: '/experience/tigerapps' }],
+	'worklin': [
+		{ label: 'Visionary Technologies internship', href: '/experience/visionary-technologies' }
+	],
+	'tigerapps': [{ label: 'TigerRetail project', href: '/projects/tigerretail' }],
+	'visionary-technologies': [{ label: 'Worklin project', href: '/projects/worklin' }],
+	'underwater-robotics': [{ label: 'Coralbots project', href: '/projects/coralbots' }]
+};
 
 export const relatedToSkill = (skill: DesignSkill) => ({
 	projects: projects.filter((project) => project.technologies.includes(skill.name)),

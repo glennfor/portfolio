@@ -1,4 +1,3 @@
-import javaElegance from './md/writing/java-elegance.md?raw';
 import shippingAcrossBoundaries from './md/writing/shipping-across-boundaries.md?raw';
 import tutorialHell from './md/writing/tutorial-hell.md?raw';
 
@@ -16,18 +15,9 @@ const WRITINGS: Array<Writing> = [
 		tags: ['Engineering', 'Systems', 'Shipping']
 	},
 	{
-		featured: 'https://images.pexels.com/photos/4584830/pexels-photo-4584830.jpeg',
-		slug: 'java-elegance',
-		title: 'The Elegance of Java',
-		shortDescription: "Verbose, boring, and complicated. But it's not all bad.",
-		datePublished: new Date(2024, 9, 7),
-		content: javaElegance,
-		tags: ['DSA', 'LeetCode']
-	},
-	{
-		featured: 'https://picsum.photos/200',
+		featured: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg',
 		slug: 'tutorial-hell',
-		title: 'Tutorial hell - A personal experience',
+		title: 'Tutorial Hell — A Personal Experience',
 		shortDescription: 'Consuming is easy. Ideas are cheap. Execution is everything.',
 		datePublished: new Date(2023, 11, 31),
 		content: tutorialHell,

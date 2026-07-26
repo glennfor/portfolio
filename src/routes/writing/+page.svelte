@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DesignIcon from '$lib/design/DesignIcon.svelte';
+	import DesignSeo from '$lib/design/DesignSeo.svelte';
 	import {
 		WRITINGS,
 		formatPublishedDate,
@@ -9,8 +10,13 @@
 
 <svelte:head>
 	<title>Writing — Glen Nfor</title>
-	<meta name="description" content="Notes and essays about software and learning." />
 </svelte:head>
+
+<DesignSeo
+	title="Writing"
+	description="Notes and essays about software and learning."
+	path="/writing"
+/>
 
 <section class="design-page">
 	<header class="design-page-header">
@@ -29,7 +35,7 @@
 				</span>
 				<p>{writing.shortDescription}</p>
 				<span>
-					<span class="design-label">{getWritingStatus(writing.slug)}</span>
+					<span class="design-label">{getWritingStatus()}</span>
 					<DesignIcon name="arrow-up-right" />
 				</span>
 			</a>

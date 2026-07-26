@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DesignIcon from '$lib/design/DesignIcon.svelte';
 	import DesignOrganizationMark from '$lib/design/DesignOrganizationMark.svelte';
+	import DesignSeo from '$lib/design/DesignSeo.svelte';
 	import {
 		experiences,
 		getAccentIcon,
@@ -9,7 +10,8 @@
 		leadership,
 		profile,
 		projects,
-		skillGroups
+		skillGroups,
+		toSkillSlug
 	} from '$lib/design/content';
 
 	const featuredProjects = projects.filter((project) => project.tier === 'featured');
@@ -22,16 +24,18 @@
 </script>
 
 <svelte:head>
-	<title>Glen Nfor — Software, AI, Robotics & Electrical Engineering</title>
-	<meta
-		name="description"
-		content="Glen Nfor builds production software, AI products, autonomous systems, robotics, and hardware."
-	/>
+	<title>Glen Nfor — Software, AI, Robotics & ECE</title>
 </svelte:head>
+
+<DesignSeo
+	title="Glen Nfor — Software, AI, Robotics & ECE"
+	description="Glen Nfor builds production software, AI products, autonomous systems, robotics, and hardware."
+	path="/"
+/>
 
 <section class="design-hero design-profile-hero">
 	<div class="design-hero-meta design-meta">
-		<span>{profile.name}</span>
+		<span>{profile.shortName}</span>
 		<span>Software · AI · Robotics · Hardware</span>
 	</div>
 	<h1 class="design-home-headline">
@@ -129,7 +133,7 @@
 <section class="design-section">
 	<header class="design-section-header">
 		<p class="design-eyebrow">02 / Selected projects</p>
-		<h2>Across the stack.</h2>
+		<h2>Built end to end.</h2>
 		<a href="/projects">All projects <DesignIcon name="arrow-up-right" /></a>
 	</header>
 
@@ -179,7 +183,7 @@
 					<p class="design-label">{group.name}</p>
 					<div class="design-tags" style="margin-top: 22px">
 						{#each group.items as skill}
-							<span class="design-tag">{skill}</span>
+							<a class="design-tag" href={`/skills/${toSkillSlug(skill)}`}>{skill}</a>
 						{/each}
 					</div>
 				</div>
@@ -242,8 +246,8 @@
 
 <section class="design-contact">
 	<p>Interested in working together or building something ambitious?</p>
-	<a href={`mailto:${profile.email}`}>
-		<span>{profile.email}</span>
+	<a href={`mailto:${profile.personalEmail}`}>
+		<span>{profile.personalEmail}</span>
 		<DesignIcon name="arrow-up-right" />
 	</a>
 </section>

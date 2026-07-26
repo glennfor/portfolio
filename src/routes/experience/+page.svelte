@@ -8,7 +8,7 @@
 	<title>Experience — Glen Nfor</title>
 	<meta
 		name="description"
-		content="Production software, AI, and full-stack engineering experience at Amazon, QuantCap, TigerApps, and more."
+		content="Production software, AI, and full-stack engineering experience at Amazon, QuantCap, TigerApps, Visionary Technologies, and Simba."
 	/>
 </svelte:head>
 

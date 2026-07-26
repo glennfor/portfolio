@@ -5,6 +5,7 @@
 		DesignProject,
 		DesignSkill
 	} from '$lib/design/content';
+	import DesignSeo from '$lib/design/DesignSeo.svelte';
 
 	export let data: {
 		skill?: DesignSkill;
@@ -22,6 +23,10 @@
 <svelte:head>
 	<title>{skill ? `${skill.name} — Technical Skills` : 'Skill not found'} — Glen Nfor</title>
 </svelte:head>
+
+{#if skill}
+	<DesignSeo title={`${skill.name} — Technical Skills`} description={skill.summary} path={`/skills/${skill.slug}`} />
+{/if}
 
 {#if !skill}
 	<section class="design-page">

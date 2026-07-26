@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DesignIcon from '$lib/design/DesignIcon.svelte';
 	import DesignMarkdown from '$lib/design/DesignMarkdown.svelte';
+	import DesignSeo from '$lib/design/DesignSeo.svelte';
 	import {
 		WRITINGS,
 		formatPublishedDate,
@@ -18,10 +19,15 @@
 
 <svelte:head>
 	<title>{writing ? writing.title : 'Writing not found'} — Glen Nfor</title>
-	{#if writing}
-		<meta name="description" content={writing.shortDescription} />
-	{/if}
 </svelte:head>
+
+{#if writing}
+	<DesignSeo
+		title={writing.title}
+		description={writing.shortDescription}
+		path={`/writing/${writing.slug}`}
+	/>
+{/if}
 
 {#if !writing}
 	<section class="design-page">
@@ -33,7 +39,7 @@
 {:else}
 	<article>
 		<header class="design-detail-header">
-			<p class="design-eyebrow">Writing / {getWritingStatus(writing.slug)}</p>
+			<p class="design-eyebrow">Writing / {getWritingStatus()}</p>
 			<h1 class="design-detail-title">{writing.title}</h1>
 			<p class="design-detail-lead">{writing.shortDescription}</p>
 			<div class="design-detail-facts">
@@ -47,7 +53,7 @@
 				</div>
 				<div>
 					<span class="design-label">Status</span>
-					<strong>{getWritingStatus(writing.slug)}</strong>
+					<strong>{getWritingStatus()}</strong>
 				</div>
 				<div>
 					<span class="design-label">Archive</span>
@@ -67,12 +73,6 @@
 			</aside>
 
 			<div>
-				{#if writing.slug === 'java-elegance'}
-					<div class="design-placeholder" style="margin-bottom: 36px">
-						<strong>This is a draft note.</strong>
-						<p>The source currently contains only an opening heading. It is preserved here without inventing the missing article.</p>
-					</div>
-				{/if}
 				<DesignMarkdown content={writing.content} />
 			</div>
 		</div>

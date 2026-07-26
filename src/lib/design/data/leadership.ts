@@ -52,7 +52,7 @@ export const leadership: Array<DesignLeadership> = [
 		summary:
 			'Mentors students in programming systems, data structures, algorithms, and debugging.',
 		contributions: [
-			'Supports more than ten students during bi-weekly lab sessions.',
+			'Supports more than ten students during twice-weekly lab sessions.',
 			'Troubleshoots C programs and explains memory management, algorithm design, and systems concepts.',
 			'Contributed to an 11% average improvement in assignment scores.'
 		],
@@ -67,10 +67,10 @@ export const leadership: Array<DesignLeadership> = [
 		slug: 'underwater-robotics',
 		organization: 'Underwater Robotics Research',
 		role: 'Research Engineer',
-		period: 'Princeton University',
+		period: 'September 2023 — Present',
 		kind: 'Research',
 		summary:
-			'Builds fish-inspired underwater robots for experiments in collective robotic behaviour.',
+			'Builds fish-inspired underwater robots for experiments in collective robotic behavior.',
 		contributions: [
 			'Contributed to robot assembly and comprehensive integration testing.',
 			'Produced assembly documentation and worked on cooling solutions.',

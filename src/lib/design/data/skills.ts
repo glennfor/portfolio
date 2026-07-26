@@ -37,7 +37,7 @@ export const skillGroups: Array<DesignSkillGroup> = [
 	},
 	{
 		name: 'Robotics and hardware',
-		items: ['ROS 2', 'F1TENTH', 'KiCad', 'Proteus', 'Arduino', 'Raspberry Pi', 'OnShape']
+		items: ['ROS 2', 'F1TENTH', 'KiCad', 'Proteus', 'Arduino', 'Raspberry Pi', 'Onshape']
 	},
 	{
 		name: 'Product tools',

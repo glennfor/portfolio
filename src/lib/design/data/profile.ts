@@ -11,9 +11,9 @@ export const profile: DesignProfile = {
 	personalEmail: 'hello@glennfor.tech',
 	education: {
 		institution: 'Princeton University',
-		degree: 'BSE Electrical Engineering and Computer Science',
+		degree: 'BSE Electrical and Computer Engineering',
 		minors: ['Computer Science', 'Robotics'],
-		graduation: 'Expected May 2027'
+		graduation: 'May 2027'
 	},
 	links: {
 		github: 'https://github.com/glennfor',

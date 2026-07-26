@@ -106,7 +106,7 @@
 			<div class="design-empty">
 				<DesignIcon name="search" size={24} />
 				<strong>No results for “{query}”.</strong>
-				<p>Try a broader project, technology, organisation, or topic.</p>
+				<p>Try a broader project, technology, organization, or topic.</p>
 			</div>
 		{:else}
 			{#each results as result}
