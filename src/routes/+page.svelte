@@ -4,6 +4,7 @@
 	import DesignSeo from '$lib/design/DesignSeo.svelte';
 	import {
 		experiences,
+		featuredCourses,
 		getAccentIcon,
 		getProjectAccent,
 		getProjectPreview,
@@ -240,6 +241,25 @@
 		<div>
 			<span class="design-label">Graduation</span>
 			<strong>{profile.education.graduation}</strong>
+		</div>
+	</div>
+
+	<div class="design-education-coursework">
+		<div class="design-row-between">
+			<p class="design-label">Selected coursework</p>
+			<a class="design-inline-link" href="/about#coursework">Full coursework</a>
+		</div>
+		<div class="design-course-highlights">
+			{#each featuredCourses as course}
+				<article>
+					<div class="design-course-highlight-meta">
+						<strong>{course.code}</strong>
+						<span>{course.term}</span>
+					</div>
+					<h3>{course.name}</h3>
+					<p>{course.summary}</p>
+				</article>
+			{/each}
 		</div>
 	</div>
 </section>

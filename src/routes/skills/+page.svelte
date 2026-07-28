@@ -14,7 +14,7 @@
 	<header class="design-page-header">
 		<p class="design-eyebrow">Technical index / {skills.length} tools</p>
 		<h1>Across the stack.</h1>
-		<p>Interview-ready technologies connected to professional work, projects, and physical systems.</p>
+		<p>Languages, frameworks, AI, systems, robotics, and hardware used across this portfolio.</p>
 	</header>
 
 	<div class="design-grid">

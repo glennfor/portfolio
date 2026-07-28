@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DesignIcon from '$lib/design/DesignIcon.svelte';
-	import { WRITINGS, experiences, leadership, projects, skills } from '$lib/design/content';
+	import { WRITINGS, courses, experiences, leadership, projects, skills } from '$lib/design/content';
 
 	type SearchResult = {
 		type: string;
@@ -56,6 +56,27 @@
 						description: item.group,
 						href: `/skills/${item.slug}`
 					})),
+				...courses
+					.filter((item) =>
+						[
+							item.code,
+							...(item.aliases ?? []),
+							item.name,
+							item.summary,
+							item.category,
+							...(item.topics ?? []),
+							...(item.skills?.flatMap((skill) => [skill.name, skill.detail]) ?? [])
+						]
+							.join(' ')
+							.toLowerCase()
+							.includes(normalizedQuery)
+					)
+					.map<SearchResult>((item) => ({
+						type: 'Course',
+						title: `${item.code} · ${item.name}`,
+						description: `${item.term} · ${item.summary}`,
+						href: '/about#coursework'
+					})),
 				...WRITINGS.filter((item) =>
 					`${item.title} ${item.shortDescription} ${item.tags.join(' ')}`
 						.toLowerCase()
@@ -72,14 +93,17 @@
 
 <svelte:head>
 	<title>Search — Glen Nfor</title>
-	<meta name="description" content="Search Glen Nfor's work, experience, leadership, and skills." />
+	<meta
+		name="description"
+		content="Search Glen Nfor's work, experience, coursework, leadership, and skills."
+	/>
 </svelte:head>
 
 <section class="design-page">
 	<header class="design-page-header">
 		<p class="design-eyebrow">Search / All content</p>
 		<h1>Find something.</h1>
-		<p>Search production work, AI, software, robotics, hardware, leadership, and writing.</p>
+		<p>Search production work, AI, software, robotics, hardware, coursework, and writing.</p>
 	</header>
 
 	<label class="design-label" for="portfolio-search">Search the portfolio</label>
@@ -90,7 +114,7 @@
 			class="design-search"
 			type="search"
 			bind:value={query}
-			placeholder="Try Amazon, ROS 2, GraphQL, robotics…"
+			placeholder="Try Amazon, ECE 302, distributed systems, robotics…"
 			autocomplete="off"
 		/>
 	</div>
@@ -100,7 +124,7 @@
 			<div class="design-empty">
 				<DesignIcon name="search" size={24} />
 				<strong>Start typing to search.</strong>
-				<p>Try “Amazon”, “autonomous”, “AI”, “Java”, or “hardware”.</p>
+				<p>Try “Amazon”, “ECE 302”, “distributed systems”, “AI”, or “hardware”.</p>
 			</div>
 		{:else if results.length === 0}
 			<div class="design-empty">

@@ -57,6 +57,29 @@ export type DesignProfile = {
 	};
 };
 
+export type DesignCourseCategory = 'foundations' | 'cs' | 'ece' | 'robotics';
+
+export type DesignCourseSkill = {
+	name: string;
+	detail: string;
+};
+
+export type DesignCourse = {
+	code: string;
+	aliases?: Array<string>;
+	name: string;
+	academicYear: 'Pre-college' | 'First year' | 'Sophomore' | 'Junior' | 'Senior';
+	term: string;
+	category: DesignCourseCategory;
+	status: 'completed' | 'planned';
+	summary: string;
+	topics?: Array<string>;
+	skills?: Array<DesignCourseSkill>;
+	projectSlug?: string;
+	leadershipSlug?: string;
+	isFeatured?: boolean;
+};
+
 export type DesignExperience = {
 	slug: string;
 	organization: string;

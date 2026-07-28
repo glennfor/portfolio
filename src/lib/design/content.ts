@@ -1,19 +1,16 @@
 import WRITINGS from '$lib/writing.params';
+import { courses } from './data/courses';
 import { experiences } from './data/experiences';
 import { leadership } from './data/leadership';
 import { profile } from './data/profile';
 import { projects } from './data/projects';
-import { skillGroups } from './data/skills';
-import type {
-	DesignAccent,
-	DesignProject,
-	DesignSkill,
-	DesignSkillGroup
-} from './data/types';
+import { skillGroups, skillSummaries } from './data/skills';
+import type { DesignAccent, DesignProject, DesignSkill } from './data/types';
 import type { DesignIconName } from './icon-names';
 
 export const DESIGN_ROOT = '/';
 export const RESUME_URL = profile.links.resume;
+export const featuredCourses = courses.filter((course) => course.isFeatured);
 
 const slugify = (value: string) =>
 	value
@@ -24,27 +21,12 @@ const slugify = (value: string) =>
 
 export const toSkillSlug = slugify;
 
-const skillSummary = (group: DesignSkillGroup, name: string) => {
-	const summaries: Record<string, string> = {
-		Languages: `A programming language used across Glen's software, systems, data, or embedded work.`,
-		'Software and web': 'A framework or library used to build production web applications and product interfaces.',
-		'Data and AI': 'A data, machine-learning, or AI technology used in projects and professional work.',
-		'Systems and infrastructure':
-			'A systems or infrastructure technology used for services, deployment, APIs, and development workflows.',
-		'Robotics and hardware':
-			'A robotics or hardware tool used to connect software with physical systems.',
-		'Product tools': 'A product-development tool used to design, test, operate, or monetize software.'
-	};
-
-	return summaries[group.name] ?? `${name} is part of Glen's technical toolkit.`;
-};
-
 export const skills: Array<DesignSkill> = skillGroups.flatMap((group) =>
 	group.items.map((name) => ({
 		slug: slugify(name),
 		name,
 		group: group.name,
-		summary: skillSummary(group, name)
+		summary: skillSummaries[name] ?? `${name} used across Glen's engineering work.`
 	}))
 );
 
@@ -176,12 +158,21 @@ export const relatedPortfolioLinks: Record<string, Array<{ label: string; href: 
 export const relatedToSkill = (skill: DesignSkill) => ({
 	projects: projects.filter((project) => project.technologies.includes(skill.name)),
 	experiences: experiences.filter((experience) => experience.technologies.includes(skill.name)),
-	leadership: leadership.filter((item) => item.technologies.includes(skill.name))
+	leadership: leadership.filter((item) => item.technologies.includes(skill.name)),
+	courses: courses
+		.filter((course) => course.skills?.some((entry) => entry.name === skill.name))
+		.map((course) => ({
+			course,
+			detail: course.skills?.find((entry) => entry.name === skill.name)?.detail ?? course.summary
+		}))
 });
 
-export { experiences, leadership, profile, projects, skillGroups, WRITINGS };
+export { courses, experiences, leadership, profile, projects, skillGroups, WRITINGS };
 export type {
 	DesignAccent,
+	DesignCourse,
+	DesignCourseCategory,
+	DesignCourseSkill,
 	DesignExperience,
 	DesignLeadership,
 	DesignLink,

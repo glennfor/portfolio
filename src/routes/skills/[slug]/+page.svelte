@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type {
+		DesignCourse,
 		DesignExperience,
 		DesignLeadership,
 		DesignProject,
@@ -13,11 +14,18 @@
 			projects: Array<DesignProject>;
 			experiences: Array<DesignExperience>;
 			leadership: Array<DesignLeadership>;
+			courses: Array<{ course: DesignCourse; detail: string }>;
 		};
 	};
 
 	$: skill = data.skill;
 	$: related = data.related;
+	$: hasRelated =
+		!!related &&
+		(related.projects.length > 0 ||
+			related.experiences.length > 0 ||
+			related.leadership.length > 0 ||
+			related.courses.length > 0);
 </script>
 
 <svelte:head>
@@ -47,9 +55,18 @@
 			<aside class="design-sidebar">
 				<p class="design-label">Evidence</p>
 				<div class="design-tags">
-					<span class="design-tag">{related?.projects.length ?? 0} projects</span>
-					<span class="design-tag">{related?.experiences.length ?? 0} roles</span>
-					<span class="design-tag">{related?.leadership.length ?? 0} leadership items</span>
+					{#if (related?.projects.length ?? 0) > 0}
+						<span class="design-tag">{related?.projects.length} projects</span>
+					{/if}
+					{#if (related?.experiences.length ?? 0) > 0}
+						<span class="design-tag">{related?.experiences.length} roles</span>
+					{/if}
+					{#if (related?.leadership.length ?? 0) > 0}
+						<span class="design-tag">{related?.leadership.length} leadership items</span>
+					{/if}
+					{#if (related?.courses.length ?? 0) > 0}
+						<span class="design-tag">{related?.courses.length} courses</span>
+					{/if}
 				</div>
 				<a class="design-inline-link" href="/skills">← All skills</a>
 			</aside>
@@ -57,10 +74,6 @@
 			<div>
 				<div class="design-prose">
 					<h2>Where it appears</h2>
-					<p>
-						This page connects {skill.name} to the portfolio entries that explicitly name it,
-						instead of assigning an arbitrary proficiency percentage.
-					</p>
 				</div>
 				<div class="design-list">
 					{#each related?.projects ?? [] as project}
@@ -87,10 +100,18 @@
 							<span>↗</span>
 						</a>
 					{/each}
-					{#if !related?.projects.length && !related?.experiences.length && !related?.leadership.length}
+					{#each related?.courses ?? [] as item}
+						<a class="design-list-row" href="/about#coursework">
+							<span class="design-label">Course</span>
+							<strong>{item.course.code} · {item.course.name}</strong>
+							<p>{item.detail}</p>
+							<span>↗</span>
+						</a>
+					{/each}
+					{#if !hasRelated}
 						<div class="design-empty">
-							<strong>No detailed case study yet.</strong>
-							<p>{skill.name} is listed on the résumé, but no public portfolio entry names it directly.</p>
+							<strong>No linked entries yet.</strong>
+							<p>No public project, role, or course on this site names {skill.name} directly.</p>
 						</div>
 					{/if}
 				</div>

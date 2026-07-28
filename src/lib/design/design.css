@@ -689,6 +689,224 @@
 	color: var(--design-invert);
 }
 
+.design-coursework {
+	margin-top: 76px;
+	scroll-margin-top: 32px;
+}
+
+.design-coursework-heading {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr);
+	gap: 48px;
+	align-items: end;
+	margin-bottom: 30px;
+}
+
+.design-coursework-heading h2 {
+	margin: 10px 0 0;
+}
+
+.design-coursework-heading > p {
+	max-width: 520px;
+	margin: 0;
+	color: var(--design-text-2);
+	font-size: 13px;
+	line-height: 1.65;
+}
+
+.design-course-filters {
+	margin-bottom: 48px;
+}
+
+.design-course-filters button span {
+	color: var(--design-text-3);
+	font-variant-numeric: tabular-nums;
+}
+
+.design-course-filters button.active span {
+	color: currentColor;
+}
+
+.design-course-groups {
+	border-top: 1px solid var(--design-strong);
+}
+
+.design-course-year {
+	display: grid;
+	grid-template-columns: minmax(120px, 0.42fr) minmax(0, 2fr);
+	gap: 32px;
+	padding: 36px 0 52px;
+	border-bottom: 1px solid var(--design-strong);
+}
+
+.design-course-year > header {
+	align-self: start;
+	position: sticky;
+	top: 24px;
+}
+
+.design-course-year > header h3 {
+	margin: 0;
+	color: var(--design-text);
+	font-size: clamp(24px, 3vw, 38px);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.05em;
+}
+
+.design-course-year > header .design-count {
+	display: block;
+	margin-top: 12px;
+}
+
+.design-course-list {
+	border-top: 1px solid var(--design-line);
+}
+
+.design-course-row {
+	display: grid;
+	grid-template-columns: minmax(112px, 0.55fr) minmax(190px, 0.9fr) minmax(0, 1.35fr);
+	gap: 22px;
+	align-items: start;
+	padding: 20px 0;
+	border-bottom: 1px solid var(--design-line);
+}
+
+.design-course-term {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 7px;
+	color: var(--design-text-3);
+	font-family: 'Fira Mono', monospace;
+	font-size: 9px;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.design-course-code {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin: 0;
+	color: var(--design-text-3);
+	font-family: 'Fira Mono', monospace;
+	font-size: 9px;
+	line-height: 1.5;
+	letter-spacing: 0.04em;
+}
+
+.design-course-code strong {
+	color: var(--design-text);
+	font-weight: 600;
+}
+
+.design-course-code span {
+	color: var(--design-text-3);
+}
+
+.design-course-title h4 {
+	margin: 7px 0 0;
+	color: var(--design-text);
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.35;
+	letter-spacing: -0.015em;
+}
+
+.design-course-summary {
+	margin: 0 !important;
+	color: var(--design-text-2);
+	font-size: 12px;
+	line-height: 1.65;
+}
+
+.design-course-summary a {
+	display: inline;
+	margin-left: 6px;
+	color: var(--design-text);
+	font-family: 'Fira Mono', monospace;
+	font-size: 9px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	white-space: nowrap;
+}
+
+.design-course-skills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	grid-column: 2 / -1;
+	margin-top: -8px;
+}
+
+.design-education-coursework {
+	margin-top: 44px;
+}
+
+.design-education-coursework > .design-row-between {
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.design-course-highlights {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	border-top: 1px solid var(--design-strong);
+	border-bottom: 1px solid var(--design-strong);
+}
+
+.design-course-highlights article {
+	min-width: 0;
+	padding: 20px;
+	border-right: 1px solid var(--design-line);
+}
+
+.design-course-highlights article:first-child {
+	padding-left: 0;
+}
+
+.design-course-highlights article:last-child {
+	padding-right: 0;
+	border-right: 0;
+}
+
+.design-course-highlight-meta {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	color: var(--design-text-3);
+	font-family: 'Fira Mono', monospace;
+	font-size: 8px;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.design-course-highlight-meta strong {
+	color: var(--design-text);
+	font-weight: 600;
+}
+
+.design-course-highlights h3 {
+	margin: 18px 0 10px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+	letter-spacing: -0.025em;
+}
+
+.design-course-highlights article > p {
+	margin: 0;
+	color: var(--design-text-2);
+	font-size: 11px;
+	line-height: 1.55;
+}
+
 .design-search {
 	width: 100%;
 	padding: 16px 0;
@@ -858,6 +1076,81 @@
 	object-fit: cover;
 	border: 1px solid var(--design-line);
 	background: var(--design-surface-2);
+}
+
+.design-gallery-video {
+	position: relative;
+	isolation: isolate;
+}
+
+.design-gallery-video video {
+	background: #111;
+}
+
+.design-gallery-video::after {
+	content: '';
+	position: absolute;
+	inset: auto 0 0;
+	height: 28%;
+	pointer-events: none;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+	z-index: 1;
+}
+
+.design-gallery-video.is-playing::after {
+	opacity: 0.85;
+}
+
+.design-gallery-play {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	display: grid;
+	place-content: center;
+	justify-items: center;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: rgba(8, 10, 12, 0.28);
+	color: #fff;
+	cursor: pointer;
+	font-family: 'Fira Mono', monospace;
+	font-size: 11px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.design-gallery-play-icon {
+	display: grid;
+	place-items: center;
+	width: 64px;
+	height: 64px;
+	border-radius: 999px;
+	border: 2px solid rgba(255, 255, 255, 0.95);
+	background: rgba(0, 0, 0, 0.55);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.design-gallery-play-icon::before {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	margin-left: 4px;
+	border-style: solid;
+	border-width: 10px 0 10px 16px;
+	border-color: transparent transparent transparent #fff;
+}
+
+.design-gallery-play:focus-visible {
+	outline: 2px solid var(--design-accent, #d26a3a);
+	outline-offset: -4px;
+}
+
+.design-gallery-video video:focus-visible {
+	outline: 2px solid var(--design-accent, #d26a3a);
+	outline-offset: 2px;
 }
 
 .design-site-preview {
@@ -1101,6 +1394,39 @@
 	.design-detail-facts > div:nth-child(-n + 2) {
 		border-bottom: 1px solid var(--design-line);
 	}
+
+	.design-course-year {
+		grid-template-columns: 1fr;
+		gap: 22px;
+	}
+
+	.design-course-year > header {
+		position: static;
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+	}
+
+	.design-course-year > header .design-count {
+		margin-top: 0;
+	}
+
+	.design-course-highlights {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.design-course-highlights article:nth-child(2) {
+		padding-right: 0;
+		border-right: 0;
+	}
+
+	.design-course-highlights article:nth-child(3) {
+		padding-left: 0;
+	}
+
+	.design-course-highlights article:nth-child(-n + 2) {
+		border-bottom: 1px solid var(--design-line);
+	}
 }
 
 @media (max-width: 680px) {
@@ -1299,6 +1625,72 @@
 		flex: 0 0 auto;
 		min-height: 44px;
 		padding: 10px 14px;
+	}
+
+	.design-coursework {
+		margin-top: 58px;
+	}
+
+	.design-coursework-heading {
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+
+	.design-course-filters {
+		margin-bottom: 34px;
+	}
+
+	.design-course-year {
+		padding: 28px 0 40px;
+	}
+
+	.design-course-row {
+		grid-template-columns: 1fr;
+		gap: 9px;
+		padding: 20px 0;
+	}
+
+	.design-course-skills {
+		grid-column: 1;
+		margin-top: 0;
+	}
+
+	.design-course-term {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.design-course-title h4 {
+		font-size: 15px;
+	}
+
+	.design-course-summary a {
+		display: inline-block;
+		margin-top: 6px;
+		margin-left: 0;
+	}
+
+	.design-education-coursework > .design-row-between {
+		align-items: flex-start;
+	}
+
+	.design-course-highlights {
+		grid-template-columns: 1fr;
+	}
+
+	.design-course-highlights article,
+	.design-course-highlights article:first-child,
+	.design-course-highlights article:nth-child(2),
+	.design-course-highlights article:nth-child(3),
+	.design-course-highlights article:last-child {
+		padding: 18px 0;
+		border-right: 0;
+		border-bottom: 1px solid var(--design-line);
+	}
+
+	.design-course-highlights article:last-child {
+		border-bottom: 0;
 	}
 
 	.design-search-field {

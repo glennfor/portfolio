@@ -39,7 +39,54 @@ export const projects: Array<DesignProject> = [
 				content: 'The complete control pipeline was validated on physical F1TENTH hardware.'
 			}
 		],
-		media: []
+		media: [
+			{
+				type: 'video',
+				src: '/images/adas-safety-filter/demo-wide.mp4',
+				poster: '/images/adas-safety-filter/demo-wide-poster.jpg',
+				captionsSrc: '/images/adas-safety-filter/demo-wide.vtt',
+				alt: 'Wide view of the F1TENTH vehicle on the indoor ADAS validation track',
+				caption: 'Track validation',
+				aspectRatio: '16 / 9',
+				isFeatured: true
+			},
+			{
+				type: 'video',
+				src: '/images/adas-safety-filter/demo-lane.mp4',
+				poster: '/images/adas-safety-filter/demo-lane-poster.jpg',
+				captionsSrc: '/images/adas-safety-filter/demo-lane.vtt',
+				alt: 'F1TENTH vehicle lane following with wall-mounted AprilTags',
+				caption: 'Lane following',
+				aspectRatio: '16 / 9'
+			},
+			{
+				type: 'video',
+				src: '/images/adas-safety-filter/demo-obstacle.mp4',
+				poster: '/images/adas-safety-filter/demo-obstacle-poster.jpg',
+				captionsSrc: '/images/adas-safety-filter/demo-obstacle.vtt',
+				alt: 'F1TENTH vehicle approaching an AprilTag obstacle cube',
+				caption: 'Obstacle approach',
+				aspectRatio: '16 / 9'
+			},
+			{
+				type: 'video',
+				src: '/images/adas-safety-filter/demo-cubes.mp4',
+				poster: '/images/adas-safety-filter/demo-cubes-poster.jpg',
+				captionsSrc: '/images/adas-safety-filter/demo-cubes.vtt',
+				alt: 'Stacked AprilTag cubes placed in the vehicle path',
+				caption: 'Obstacle markers',
+				aspectRatio: '16 / 9'
+			},
+			{
+				type: 'video',
+				src: '/images/adas-safety-filter/demo-close.mp4',
+				poster: '/images/adas-safety-filter/demo-close-poster.jpg',
+				captionsSrc: '/images/adas-safety-filter/demo-close.vtt',
+				alt: 'Close view of the F1TENTH platform during a lane-keeping run',
+				caption: 'Close hardware run',
+				aspectRatio: '16 / 9'
+			}
+		]
 	},
 	{
 		slug: 'eval-gaming',
@@ -170,7 +217,63 @@ export const projects: Array<DesignProject> = [
 					'Underwater robotics brings embedded computing, sensing, mechanical integration, thermal constraints, and experimental reliability into one physical system.'
 			}
 		],
-		media: []
+		media: [
+			{
+				type: 'image',
+				src: '/images/coralbots/hero-01.jpg',
+				alt: 'Assembled fish-inspired CoralBot on a workshop stand',
+				caption: 'Assembled CoralBot',
+				isFeatured: true
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/assembled-01.jpg',
+				alt: 'Red CoralBot on a BlueBot SSR-LAB stand',
+				caption: 'BlueBot stand'
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/side-01.jpg',
+				alt: 'Side view of the CoralBot camera dome and fins',
+				caption: 'Camera and fins'
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/workshop-01.jpg',
+				alt: 'CoralBot on a green cutting mat during workshop assembly',
+				caption: 'Workshop assembly'
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/hull-01.jpg',
+				alt: 'Red and yellow translucent CoralBot hull',
+				caption: 'Hull form'
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/shells-01.jpg',
+				alt: 'Open yellow and red 3D-printed CoralBot shells',
+				caption: 'Printed shells'
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/parts-01.jpg',
+				alt: 'Yellow CoralBot hull half with small printed fasteners',
+				caption: 'Printed parts'
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/internals-01.jpg',
+				alt: 'Open CoralBot shells showing camera module and PCB stack',
+				caption: 'Camera and compute'
+			},
+			{
+				type: 'image',
+				src: '/images/coralbots/internals-02.jpg',
+				alt: 'Disassembled CoralBot electronics with LEDs and ribbon cable',
+				caption: 'Electronics layout'
+			}
+		]
 	},
 	{
 		slug: 'rover-electrical-architecture',
@@ -397,7 +500,69 @@ export const projects: Array<DesignProject> = [
 					'The car can step, turn, spin in place, speak responses, capture photos, follow ArUco markers, and execute higher-level skills like maze navigation via audio directions, patterned driving, and object tracking. The LLM validates whether a request is achievable before generating a structured action plan.'
 			}
 		],
-		media: []
+		media: [
+			{
+				type: 'image',
+				src: '/images/carlab/hero-01.jpg',
+				alt: 'CarLab holonomic robot with Raspberry Pi, camera, and display',
+				caption: 'Assembled omni car',
+				isFeatured: true
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/open-chassis-01.jpg',
+				alt: 'CarLab chassis with top panel open revealing stacked electronics',
+				caption: 'Open chassis'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/electronics-01.jpg',
+				alt: 'Close view of CarLab boards, Raspberry Pi, and TFT display',
+				caption: 'Compute stack'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/overhead-01.jpg',
+				alt: 'Overhead view of the CarLab robot on a lab cutting mat',
+				caption: 'Bench overview'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/assembled-01.jpg',
+				alt: 'Top-down view of the powered CarLab robot with status LEDs',
+				caption: 'Powered system'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/assembled-02.jpg',
+				alt: 'CarLab robot on the workbench during integration',
+				caption: 'Integration'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/drivebase-01.jpg',
+				alt: 'Bare three-wheel holonomic CarLab drivebase with motor drivers',
+				caption: 'Drivebase'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/drivebase-02.jpg',
+				alt: 'CarLab kiwi-drive motors and omni wheels during assembly',
+				caption: 'Motor layout'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/bench-01.jpg',
+				alt: 'CarLab robot on the lab bench beside a laptop',
+				caption: 'Lab bench'
+			},
+			{
+				type: 'image',
+				src: '/images/carlab/bench-02.jpg',
+				alt: 'Angled view of CarLab electronics and omni wheels',
+				caption: 'Hardware detail'
+			}
+		]
 	},
 	{
 		slug: 'parceflyte',
