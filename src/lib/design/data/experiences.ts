@@ -24,6 +24,28 @@ export const experiences: Array<DesignExperience> = [
 		accent: 'ai'
 	},
 	{
+		slug: 'underwater-robotics',
+		organization: 'Underwater Robotics Research',
+		role: 'Undergraduate Researcher',
+		location: 'Princeton University',
+		startDate: 'September 2025',
+		endDate: 'December 2025',
+		summary:
+			'Built fish-inspired underwater robots for experiments in collective robotic behavior.',
+		contributions: [
+			'Contributed to robot assembly and comprehensive integration testing.',
+			'Produced assembly documentation and worked on cooling solutions.',
+			'Contributed to custom imaging hardware for underwater robotic systems.'
+		],
+		technologies: ['Embedded computing', 'Custom hardware', 'Robotics integration'],
+		priority: 'primary',
+		logo: {
+			src: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Princeton_seal.svg',
+			alt: 'Princeton University'
+		},
+		accent: 'research'
+	},
+	{
 		slug: 'amazon-luna',
 		organization: 'Amazon',
 		role: 'Software Development Engineer Intern, Luna Cloud Gaming',

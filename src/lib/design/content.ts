@@ -133,13 +133,12 @@ export const organizationWebsites: Record<string, string> = {
 	'Visionary Technologies Company': 'https://www.vtc.cm/',
 	Simba: 'https://www.simba.io/',
 	'Princeton University Robotics Club': 'https://club.robotics.princeton.edu/',
-	'Princeton Rover Club': 'https://odus.princeton.edu/undergraduate-student-organizations',
 	'Princeton Computer Science Department': 'https://www.cs.princeton.edu/',
 	'Underwater Robotics Research': 'https://www.princeton.edu/'
 };
 
 export const relatedPortfolioLinks: Record<string, Array<{ label: string; href: string }>> = {
-	'coralbots': [{ label: 'Underwater Robotics research', href: '/leadership#underwater-robotics' }],
+	'coralbots': [{ label: 'Underwater Robotics research', href: '/experience/underwater-robotics' }],
 	'rover-electrical-architecture': [
 		{ label: 'Princeton Rover Club leadership', href: '/leadership#princeton-rover-club' }
 	],

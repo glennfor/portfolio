@@ -51,6 +51,9 @@
 				{#if preview}
 					<a class="design-card-media" href={`/projects/${project.slug}`}>
 						<img src={preview.src} alt={preview.alt} loading="lazy" decoding="async" />
+						<span class="design-card-media-icon" aria-hidden="true">
+							<DesignIcon name={getAccentIcon(getProjectAccent(project))} size={18} />
+						</span>
 					</a>
 				{:else}
 					<a class="design-card-visual" href={`/projects/${project.slug}`} aria-label={`View ${project.name}`}>

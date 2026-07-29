@@ -496,6 +496,16 @@
 	border-bottom: 1px solid var(--design-line);
 }
 
+.design-card-media-icon {
+	position: absolute;
+	top: 14px;
+	left: 14px;
+	display: grid;
+	place-items: center;
+	color: var(--design-text);
+	pointer-events: none;
+}
+
 .design-card-visual {
 	display: flex;
 	align-items: flex-end;

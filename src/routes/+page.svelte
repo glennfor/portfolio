@@ -145,6 +145,9 @@
 				{#if preview}
 					<a class="design-card-media" href={`/projects/${project.slug}`}>
 						<img src={preview.src} alt={preview.alt} loading="lazy" decoding="async" />
+						<span class="design-card-media-icon" aria-hidden="true">
+							<DesignIcon name={getAccentIcon(getProjectAccent(project))} size={16} />
+						</span>
 					</a>
 				{:else}
 					<a class="design-card-visual" href={`/projects/${project.slug}`} aria-label={`View ${project.name}`}>
@@ -195,7 +198,7 @@
 
 <section class="design-section">
 	<header class="design-section-header">
-		<p class="design-eyebrow">04 / Leadership & research</p>
+		<p class="design-eyebrow">04 / Leadership</p>
 		<h2>Building with teams.</h2>
 		<a href="/leadership">Leadership details <DesignIcon name="arrow-up-right" /></a>
 	</header>

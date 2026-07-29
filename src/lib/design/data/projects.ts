@@ -8,7 +8,7 @@ export const projects: Array<DesignProject> = [
 			'A real-time predictive safety layer that intercepts human driving commands before they cause lane departures or obstacle collisions.',
 		category: ['Autonomous Systems', 'Robotics'],
 		technologies: ['Python', 'ROS 2', 'JAX', 'iLQR', 'F1TENTH'],
-		role: 'Controls and robotics engineer',
+		role: 'Undergraduate course project',
 		period: 'April — May 2026',
 		status: 'completed',
 		tier: 'featured',
@@ -139,7 +139,7 @@ export const projects: Array<DesignProject> = [
 		period: '2024 — Present',
 		status: 'active',
 		tier: 'featured',
-		links: [],
+		links: [{ label: 'Website', href: 'https://infradar.com/' }],
 		sections: [
 			{
 				title: 'Product',
@@ -181,7 +181,21 @@ export const projects: Array<DesignProject> = [
 				content: 'The processor was assembled and simulated in Proteus.'
 			}
 		],
-		media: []
+		media: [
+			{
+				type: 'image',
+				src: '/images/am16k/microprocessor.jpg',
+				alt: 'AM16K 16-bit microprocessor system schematic in Proteus',
+				caption: 'Microprocessor system',
+				isFeatured: true
+			},
+			{
+				type: 'image',
+				src: '/images/am16k/memory.jpg',
+				alt: 'AM16K memory decoder and submodule schematic in Proteus',
+				caption: 'Memory and decode'
+			}
+		]
 	},
 	{
 		slug: 'coralbots',
@@ -190,7 +204,7 @@ export const projects: Array<DesignProject> = [
 			'Underwater fish-inspired robots built to investigate collective behavior in robotic swarms.',
 		category: ['Research', 'Robotics', 'Hardware'],
 		technologies: ['Embedded computing', 'Custom imaging', 'Robotics integration'],
-		role: 'Research engineer',
+		role: 'Undergraduate researcher',
 		period: 'September 2023 — Present',
 		status: 'research',
 		tier: 'featured',
@@ -286,12 +300,7 @@ export const projects: Array<DesignProject> = [
 		period: 'January 2024 — Present',
 		status: 'active',
 		tier: 'featured',
-		links: [
-			{
-				label: 'Rover Club',
-				href: 'https://odus.princeton.edu/undergraduate-student-organizations'
-			}
-		],
+		links: [],
 		sections: [
 			{
 				title: 'System',

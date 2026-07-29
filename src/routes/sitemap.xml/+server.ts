@@ -16,7 +16,8 @@ const staticRoutes = [
 	'/leadership',
 	'/skills',
 	'/writing',
-	'/search'
+	'/search',
+	'/card'
 ];
 
 export function GET() {

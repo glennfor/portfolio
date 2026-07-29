@@ -62,22 +62,5 @@ export const leadership: Array<DesignLeadership> = [
 			alt: 'Princeton Computer Science Department'
 		},
 		accent: 'leadership'
-	},
-	{
-		slug: 'underwater-robotics',
-		organization: 'Underwater Robotics Research',
-		role: 'Research Engineer',
-		period: 'September 2023 — Present',
-		kind: 'Research',
-		summary:
-			'Builds fish-inspired underwater robots for experiments in collective robotic behavior.',
-		contributions: [
-			'Contributed to robot assembly and comprehensive integration testing.',
-			'Produced assembly documentation and worked on cooling solutions.',
-			'Contributed to custom imaging hardware for underwater robotic systems.'
-		],
-		technologies: ['Embedded computing', 'Custom hardware', 'Robotics integration'],
-		logo: princetonLogo,
-		accent: 'research'
 	}
 ];

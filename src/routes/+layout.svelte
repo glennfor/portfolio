@@ -9,9 +9,11 @@
 	onMount(() => onHydrated());
 
 	$: isLegacyRoute = $page.url.pathname.startsWith('/old/eureka');
+	$: isCardRoute = $page.url.pathname === '/card' || $page.url.pathname.startsWith('/card/');
+	$: isStandaloneRoute = isLegacyRoute || isCardRoute;
 </script>
 
-{#if isLegacyRoute}
+{#if isStandaloneRoute}
 	<slot />
 {:else}
 	<DesignShell>
