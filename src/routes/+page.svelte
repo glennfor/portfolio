@@ -105,7 +105,7 @@
 <section class="design-section">
 	<header class="design-section-header">
 		<p class="design-eyebrow">01 / Selected experience</p>
-		<h2>Production work.</h2>
+		<h2>Internships & research.</h2>
 		<a href="/experience">Full experience <DesignIcon name="arrow-up-right" /></a>
 	</header>
 
@@ -165,7 +165,7 @@
 								<span class="design-tag">{technology}</span>
 							{/each}
 						</div>
-						<a class="design-label" href={`/projects/${project.slug}`}>Explore ↗</a>
+						<a class="design-label" href={`/projects/${project.slug}`}>View project ↗</a>
 					</div>
 				</div>
 			</article>
@@ -268,7 +268,7 @@
 </section>
 
 <section class="design-contact">
-	<p>Interested in working together or building something ambitious?</p>
+	<p>Hiring, collaborating, or want to talk systems?</p>
 	<a href={`mailto:${profile.personalEmail}`}>
 		<span>{profile.personalEmail}</span>
 		<DesignIcon name="arrow-up-right" />

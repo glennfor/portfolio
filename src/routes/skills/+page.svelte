@@ -13,8 +13,11 @@
 <section class="design-page">
 	<header class="design-page-header">
 		<p class="design-eyebrow">Technical index / {skills.length} tools</p>
-		<h1>Across the stack.</h1>
-		<p>Languages, frameworks, AI, systems, robotics, and hardware used across this portfolio.</p>
+		<h1>Tools I actually use.</h1>
+		<p>
+			Languages, frameworks, AI, systems, robotics, and hardware tied to projects, roles, and
+			coursework on this site.
+		</p>
 	</header>
 
 	<div class="design-grid">

@@ -19,7 +19,7 @@
 	<header class="design-page-header">
 		<p class="design-eyebrow">Princeton / Leadership & research</p>
 		<h1>Building with teams.</h1>
-		<p>Robotics leadership, systems teaching, mentoring, and experimental engineering.</p>
+		<p>Club leadership, teaching, and mentoring across Princeton robotics and CS.</p>
 	</header>
 
 	<div class="design-leadership-stack">

@@ -245,8 +245,8 @@
 
 			<h2>What I’m looking for</h2>
 			<p>
-				I’m interested in high-impact engineering roles where I can contribute to ambitious
-				technical problems, learn from strong engineers, and own systems end to end.
+				I’m looking for full-time software and robotics roles where I own a system from design
+				through production—especially products that mix software with physical or ML systems.
 			</p>
 
 			<h2>Beyond one discipline</h2>

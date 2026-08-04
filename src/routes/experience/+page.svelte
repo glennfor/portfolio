@@ -8,15 +8,15 @@
 	<title>Experience — Glen Nfor</title>
 	<meta
 		name="description"
-		content="Production software, AI, and full-stack engineering experience at Amazon, QuantCap, TigerApps, Visionary Technologies, and Simba."
+		content="Internships and research across Amazon, Princeton underwater robotics, QuantCap, TigerApps, and more."
 	/>
 </svelte:head>
 
 <section class="design-page">
 	<header class="design-page-header">
 		<p class="design-eyebrow">Experience / {experiences.length} roles</p>
-		<h1>Production work.</h1>
-		<p>Industry engineering, machine learning, and software used by real customers and communities.</p>
+		<h1>Selected experience.</h1>
+		<p>Internships, research, and student-built software across industry and campus.</p>
 	</header>
 
 	<div class="design-list">

@@ -31,11 +31,11 @@ export const experiences: Array<DesignExperience> = [
 		startDate: 'September 2025',
 		endDate: 'December 2025',
 		summary:
-			'Built fish-inspired underwater robots for experiments in collective robotic behavior.',
+			'Helped assemble and test fish-inspired underwater robots used in collective-behavior experiments.',
 		contributions: [
-			'Contributed to robot assembly and comprehensive integration testing.',
-			'Produced assembly documentation and worked on cooling solutions.',
-			'Contributed to custom imaging hardware for underwater robotic systems.'
+			'Assembled robot subsystems and ran integration tests before water trials.',
+			'Wrote assembly docs and improved cooling for denser onboard electronics.',
+			'Helped build and integrate custom underwater imaging hardware.'
 		],
 		technologies: ['Embedded computing', 'Custom hardware', 'Robotics integration'],
 		priority: 'primary',
